@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { capitalizeFirstLetter } from '../../utils/helpers';
 
 
-function Nav() {
+function Nav(props) {
 
-const [categories] = useState([
-    {
-        name: "wedding",
-        description:
-        "Photos of customer order wedding cakes",
-    },
-    { name: "birthday",
-      description: 
-      "Photos of customer order birthday cakes",
-    },
-]);    
+const {
+  categories = [],
+  setCurrentCategory,
+  currentCategory,
+} = props; 
 
-const [currentCategory, setCurrentCategory] = useState(categories[0]);
+useEffect(() => {
+  document.title = capitalizeFirstLetter(currentCategory.name);
+}, [currentCategory]);
 
+
+// Logs navbar item clicked
 // function categorySelected(name) {
 //     console.log(`${name} clicked`)
 // }
@@ -37,7 +35,8 @@ const [currentCategory, setCurrentCategory] = useState(categories[0]);
                 }`} key={category.name}>
               <span
                 onClick={() => {
-                  setCurrentCategory(category)
+                  setCurrentCategory(category);
+                  
                 }}
               >
                 {capitalizeFirstLetter(category.name)}
