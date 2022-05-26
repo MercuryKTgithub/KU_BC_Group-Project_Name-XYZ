@@ -1,36 +1,25 @@
 import React from 'react';
 import { useQuery } from '@apollo/client'; // useQuery hook that expect a parameter passed in
-import { QUERY_THOUGHTS, QUERY_ME_BASIC } from '../utils/queries'; 
 import Auth from '../utils/auth';
+import { QUERY_ME_BASIC } from '../utils/queries';
  
 const Home = () => {
-  // -- Use useQuery hook to make query request
-  // loading property: @apollo/client library provides a loading property to indicate that the request isn't done just yet
-  // data property: data returned from the server stored in the destructured data property when request is finished
-  // const { loading, data } = useQuery(QUERY_THOUGHTS); // 2 built-in properties
-
   // -- Use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData } = useQuery(QUERY_ME_BASIC);
 
-  // // Optional Chaining
-  // // -- If data exists, store it in the thoughts constant we just created. 
-  // // -- If data is undefined, then save an empty array to the thoughts component.
-  // const thoughts = data?.thoughts || [];
-  // // console.log("------------------------");
-  // console.log(thoughts);
-
   const loggedIn = Auth.loggedIn(); // is the user logged-in?
 
-  // pass down 2 props thoughts and title
   return (
     <main>
       <div className='flex-row justify-space-between'>
-        {loggedIn && (
+        {/* {loggedIn && (
           <div className="col-12 mb-3">
              Top Row Welcome Message
           </div>
-        )}
-    
+        )} */}
+        <div className="col-12 mb-3">
+             Top Row Welcome Message
+        </div>
         
         <div className={`col-12 mb-3 ${loggedIn && 'col-lg-8'}`}>
           
