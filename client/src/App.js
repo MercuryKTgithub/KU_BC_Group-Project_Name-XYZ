@@ -7,7 +7,7 @@ import { ApolloClient, InMemoryCache, ApolloProvider, createHttpLink, } from '@a
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
-import NoMatch from './pages/NoMatch'; 
+import NotFound from './pages/NotFound'; 
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -18,7 +18,7 @@ const httpLink = createHttpLink({uri: '/graphql',});
 // -- Because we're not using the first parameter, but we still need to access 
 // the second one, we can use an underscore _ to serve as a placeholder for the first parameter.
 const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token_in_deepthotapp');
+  const token = localStorage.getItem('id_token_in_fec');
   return {
     headers: {
       ...headers,
@@ -49,7 +49,7 @@ function App() {
               />                             
               <Route 
                 path="*" 
-                element={<NoMatch />} 
+                element={<NotFound />} 
               />
             </Routes>
           </div>

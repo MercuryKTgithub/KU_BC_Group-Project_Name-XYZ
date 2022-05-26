@@ -1,0 +1,31 @@
+{
+  "name": "ku_bc_group_project_fec_designer_cake_app",
+  "version": "1.0.0",
+  "description": "Online Designer Cake App",
+  "scripts": {
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://MercuryKTgithub@github.com/MercuryKTgithub/KU_BC_Group_Project_FEC_Designer_Cake_App.git"
+  },
+  "keywords": [
+    "React",
+    "MongoDB",
+    "Apollo",
+    "GraphQL",
+    "MERN"
+  ],
+  "author": "KUBC Group Project III",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MercuryKTgithub/KU_BC_Group_Project_FEC_Designer_Cake_App/issues"
+  },
+  "homepage": "https://github.com/MercuryKTgithub/KU_BC_Group_Project_FEC_Designer_Cake_App#readme",
+  "devDependencies": {
+    "concurrently": "^7.2.1"
+  }
+}
