@@ -1,26 +1,33 @@
 {
-  "name": "mern-server",
+  "name": "kubc_lab_m21_deep-thoughts",
   "version": "1.0.0",
-  "description": "",
+  "description": "community deep thoughts",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "watch": "nodemon",
-    "seed": "node seeders/seeds.js"
+    "start": "node server/server.js",
+    "build": "cd client && npm run build",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TTKHScriptPoetry/KUBC_LAB_M21_Deep-Thoughts.git"
+  },
+  "keywords": [
+    "Apollo",
+    "GraphGL",
+    "Express",
+    "Node.js",
+    "JWT"
+  ],
+  "author": "N/A",
   "license": "ISC",
-  "dependencies": {
-    "apollo-server-express": "^3.7.0",
-    "bcrypt": "^4.0.1",
-    "express": "^4.18.1",
-    "faker": "^4.1.0",
-    "graphql": "^16.5.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.13.14"
+  "bugs": {
+    "url": "https://github.com/TTKHScriptPoetry/KUBC_LAB_M21_Deep-Thoughts/issues"
   },
+  "homepage": "https://github.com/TTKHScriptPoetry/KUBC_LAB_M21_Deep-Thoughts#readme",
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "concurrently": "^7.2.0"
   }
 }
