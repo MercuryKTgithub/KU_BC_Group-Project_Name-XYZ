@@ -31,7 +31,7 @@ const Home = () => {
         <div className="col-12 col-lg-3 mb-3">Please register to place orders</div>  }
          
       
-        {user ? (<div className="col-12 col-lg-3 mb-3">
+        {user ? (<div className="col-12 col-lg-7 mb-7">
           | <Link to={`/cakediscussion`}><span> View your custom cake dashboard </span></Link>| </div> ) : null}
         
       </div>

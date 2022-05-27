@@ -90,10 +90,10 @@ const CommentForm = () => {
         <textarea
           placeholder="Please feel free to add comments or special request..."
           value={commentText}
-          className="form-textarea col-12 col-md-9"
+          className="form-textarea col-9 col-md-9"
           onChange={handleChange}>
         </textarea>
-          <button className="btn col-12 col-md-3" type="submit">
+          <button className="btn col-3 col-md-3" type="submit">
             Submit
           </button>
       </form>

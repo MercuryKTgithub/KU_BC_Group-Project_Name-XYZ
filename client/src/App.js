@@ -13,7 +13,7 @@ import CakeDiscussion from './components/CakeDiscussion';
 import CakeReview from './components/CakeReview'; 
 import CommentForm from './components/CommentForm'; 
 import SingleCommentFocus from './components/SingleCommentFocus';
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -77,10 +77,10 @@ function App() {
                 path="/comment/:id" 
                 element={<SingleCommentFocus />} 
               />
-              <Route  
+              {/* <Route  
                 path="/profile/:username" 
                 element={<Profile />} 
-              />                     
+              />                      */}
               <Route 
                 path="*" 
                 element={<NotFound />} 

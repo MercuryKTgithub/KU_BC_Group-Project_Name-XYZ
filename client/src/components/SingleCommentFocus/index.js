@@ -4,8 +4,8 @@ import { useQuery } from '@apollo/client';
 import { QUERY_COMMENT } from '../../utils/queries';
 import ReactionList from '../../components/ReactionList';
 
-// import ReactionForm from '../components/ReactionForm';
-// import Auth from '../utils/auth';
+import ReactionForm from '../../components/ReactionForm';
+import Auth from '../../utils/auth';
 
 const SingleCommentFocus = props => {
   const { id: commentId } = useParams();
@@ -39,7 +39,7 @@ const SingleCommentFocus = props => {
         <ReactionList reactions={comment.reactions} />
       )}
 
-      {/* {Auth.loggedIn() && <ReactionForm commentId={comment._id} />} */}
+      {Auth.loggedIn() && <ReactionForm commentId={comment._id} />}
     </div>
   );
 };
