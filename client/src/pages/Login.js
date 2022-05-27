@@ -2,34 +2,61 @@ import React, { useState } from 'react';
 import { useMutation } from '@apollo/client'; //useMutation Hook 
 import { LOGIN_USER } from '../utils/mutations';
 import Auth from '../utils/auth';
+import { validateEmail} from '../utils/helpers';
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error }] = useMutation(LOGIN_USER);
-
+  const [errorMessage, setErrorMessage] = useState(''); 
   // --------------------------------------------------
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({...formState, [name]: value,});
+
+    if (event.target.name === 'email') 
+    {
+      const isValid = validateEmail(event.target.value);
+      console.log(isValid);
+      if (!isValid) {
+        setErrorMessage('Your email is invalid!');
+      } else {
+        setErrorMessage('');
+      }
+    } 
+
   };
   // --------------------------------------------------
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    // we are setting the variables field in our mutation to be an object with 
-    //  key/value pairs that match directly to formState object.
-    try {
-      const { data } = await login({
-        variables: { ...formState }
-      });
-  
-      console.log(data); //print out the 'credentials'
-      Auth.login(data.login.token);
+    if (!errorMessage) 
+    {
+      try {
+        const { data } = await login({
+          variables: { ...formState }
+        });
+    
+        Auth.login(data.login.token);
 
-    } catch (e) {
-      console.error(e);
+      } catch (e) {
+        console.error(e);
+      }
     }
+
+//     // we are setting the variables field in our mutation to be an object with 
+//     //  key/value pairs that match directly to formState object.
+//     try {
+//       const { data } = await login({
+//         variables: { ...formState }
+//       });
+//   
+//       console.log(data); //print out the 'credentials'
+//       Auth.login(data.login.token);
+// 
+//     } catch (e) {
+//       console.error(e);
+//     }
 
     // clear form values
     setFormState({
@@ -50,13 +77,13 @@ const Login = (props) => {
                 placeholder='Your email'
                 name='email'
                 type='email'
-                id='email'
+                id='email' autoComplete="off"
                 value={formState.email}
                 onChange={handleChange}
               />
               <input
                 className='form-input'
-                placeholder='******'
+                placeholder='&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;'
                 name='password'
                 type='password'
                 id='password'
@@ -67,7 +94,8 @@ const Login = (props) => {
                 Submit
               </button>
             </form>
-            {error && <div>Login failed</div>}
+            {error && <div className="text-error">Login failed</div>}
+            <div className="text-error"> {errorMessage}</div> 
           </div>
         </div>
       </div>

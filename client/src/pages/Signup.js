@@ -90,7 +90,7 @@ const Signup = () => {
                 placeholder='Your username - required'
                 name='username'
                 type='username'
-                id='username' autoComplete="none"
+                id='username' autoComplete="off"
                 value={formState.username}
                 onChange={handleChange}
                 onBlur={handleChange}  
@@ -100,7 +100,7 @@ const Signup = () => {
                 placeholder='Your email - required'
                 name='email'
                 type='email'
-                id='email' autoComplete="none"
+                id='email' autoComplete="off"
                 value={formState.email}
                 onChange={handleChange}
                 onBlur={handleChange}  
@@ -110,7 +110,7 @@ const Signup = () => {
                 placeholder=''
                 name='password'
                 type='password'
-                id='password' autoComplete="none"
+                id='password' autoComplete="off"
                 value={formState.password}
                 onChange={handleChange}
               />
