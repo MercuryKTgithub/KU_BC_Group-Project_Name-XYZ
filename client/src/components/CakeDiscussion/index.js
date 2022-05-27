@@ -25,12 +25,11 @@ const CakeDiscussion = () => {
           data: { me: { ...me, comments: [...me.comments, userData2Cache] } },
         });
       } catch (e) {
-        console.warn("First thought insertion by user!")
+        console.warn("First comment insertion by user!")
       }
   
     }
   });
- 
   
   return (
     <main>

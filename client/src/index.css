@@ -171,12 +171,11 @@ nav a:hover {
   padding: 0.5rem 1.2rem;
   margin: 5px 0;
   border-radius: var(--border-radius);
-  border: none;
+  border:  1px solid var(--quatrinary) !important;
   color: var(--dark);
   outline: none;
   background-color: var(--secondary);
-  transition: all 0.5s;
-  
+  transition: all 0.5s;  
 }
 
 .btn{
