@@ -40,6 +40,8 @@ const SingleCommentFocus = props => {
       )}
 
       {Auth.loggedIn() && <ReactionForm commentId={comment._id} />}
+
+      <br></br>
     </div>
   );
 };

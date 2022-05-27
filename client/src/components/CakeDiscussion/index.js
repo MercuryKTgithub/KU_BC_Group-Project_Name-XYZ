@@ -57,6 +57,7 @@ const CakeDiscussion = () => {
           
       </div>
       <div className="mb-3">{<CommentForm />}</div>
+      <br></br>
     </main>
   );
 };

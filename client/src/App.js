@@ -13,7 +13,11 @@ import CakeDiscussion from './components/CakeDiscussion';
 import CakeReview from './components/CakeReview'; 
 import CommentForm from './components/CommentForm'; 
 import SingleCommentFocus from './components/SingleCommentFocus';
+import CakeOrderForm from './components/CakeOrderForm';
+import Checkboxes from './pages/Checkboxes';
+
 // import Profile from './pages/Profile';
+import SinglePhoto from './components/SinglePhoto';
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -69,7 +73,7 @@ function App() {
                 path="/commentform"
                 element={<CommentForm />}
               /> 
-               <Route 
+              <Route 
                 path="/cakediscussion"
                 element={<CakeDiscussion />}
               />
@@ -77,10 +81,18 @@ function App() {
                 path="/comment/:id" 
                 element={<SingleCommentFocus />} 
               />
-              {/* <Route  
-                path="/profile/:username" 
-                element={<Profile />} 
-              />                      */}
+               <Route  
+                path="/checkboxes" 
+                element={<Checkboxes />} 
+              />
+              <Route  
+                path="/cakeorderform" 
+                element={<CakeOrderForm />}
+               />
+              <Route  
+                path="/singlephoto" 
+                element={<SinglePhoto />} 
+              />                     
               <Route 
                 path="*" 
                 element={<NotFound />} 
