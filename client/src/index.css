@@ -1,12 +1,12 @@
 :root {
   --primary: rgb(104, 146, 146);/*rgb(200, 115, 167); */
   --secondary: rgb(253, 243, 243);
-  --tertiary:  rgba(255, 181, 252, 0.180);
+  --tertiary:  rgba(255, 191, 252, 0.100);
   --quatrinary: rgb(233, 223, 223);/*rgb(240, 186, 234);*/
-  --light: rgb(254, 250, 238);
-  --dark: rgb(109, 145, 151); /*rgb(184, 100, 152);*/ /*#689292;*/
+  --light: rgba(254, 240, 238, 0.914);
+  --dark: rgba(98, 134, 130, 0.954); /*rgb(184, 100, 152);*/ /*#689292;*/
   --error: rgba(177, 55, 126, 0.654);
-  --boundary: rgba(197, 75, 146, 0.554);
+  --emphasis-catchy: rgba(182, 65, 136, 0.624);
   --input-focus: rgb(115, 129, 131);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -47,6 +47,17 @@ footer{
   border-top: 1px solid var(--quatrinary);
 }
 
+main a {
+  color: var(--dark);
+  text-decoration: none;
+}
+
+main a:hover{
+  color: var(--emphasis-catchy);
+  text-decoration: none;
+  font-weight: 500;
+}
+
 textarea:focus, input:focus{
   outline: none;
   font-weight: 300;
@@ -60,13 +71,29 @@ textarea, input{
 h1,
 h2,
 h3,
-h4,
-h5,
-h6 {
+h5{
   font-family: var(--designer-font-primary); 
   font-weight: 700;
   margin: 5px 0;
   line-height: 1.25;
+}
+ 
+h4{
+  font-family: var(--designer-font-primary); 
+  font-weight: 600;
+  margin: 5px 0;
+  line-height: 1.25;
+  
+}
+
+ 
+h5, 
+h6 {
+  font-family: var(--designer-font-primary); 
+  font-weight: 600;
+  margin: 5px 0;
+  line-height: 1.25;
+  color: var(--emphasis-catchy);
 }
 
 h1 {
@@ -94,7 +121,7 @@ h6 {
 }
 
 p {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   margin-top: 0;
 }
 
@@ -102,6 +129,13 @@ a {
   color: var(--dark);
   text-decoration: none;
 }
+
+a:hover{
+  color: var(--emphasis-catchy);
+  text-decoration: none;
+  font-weight: 500;
+}
+
 
 a:visited {
   color: inherit;
@@ -168,7 +202,7 @@ nav a:hover {
 
 /* CARDS */
 .card {
-  margin: 0 0 20px 0;
+  margin: 0 15px 20px 0;
   border-top: 1px solid var(--dark);
   border-bottom: 3px solid var(--dark);
   border-right: 1px solid var(--dark);
@@ -188,7 +222,18 @@ nav a:hover {
 
 .card-body {
   padding: 2.5%;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+}
+
+.card-body p {
+  padding: 2.5%;
+  font-size: 1.4rem !important;
+}
+
+.card-body span {
+  padding: 1.5% 0;
+  font-size: 1.2rem !important;
+  font-family: var(--casual-technical-font);
 }
 
 /* FORM */
@@ -199,20 +244,35 @@ nav a:hover {
   font-family: var(--casual-technical-font);
 }
 
-.form-label {
+/* .form-textarea {
+  height: 120px;
+} */
+
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin: 6px 100px 10px 0 !important;
   font-size: 1.2rem;
-  margin: 0.625rem 0 0.25rem;
-}
+  border: 2px solid var(--dark);
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  height: 120px;
+} 
 
 .form-input {
   width: 100%;
   padding: 0.75rem;
-  margin: 0.2rem 0;
-  font-size: 1.3rem;
+  margin: 0.2rem 30px 0.2rem 0;
+  font-size: 1.2rem;
   border: 2px solid var(--dark);
   border-radius: var(--border-radius);
   font-weight: 500;
 } 
+
+.form-label {
+  font-size: 1.2rem;
+  margin: 0.625rem 0 0.25rem;
+}
 
 [type='radio']:checked,
 [type='radio']:not(:checked) {

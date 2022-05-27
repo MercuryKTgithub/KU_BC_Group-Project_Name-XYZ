@@ -27,7 +27,7 @@ const Header = () => {
           ) : (
           <React.Fragment>
             <Link to="/login">Login</Link>
-            <Link to="/signup">Signup</Link>
+            <Link to="/signup">Register</Link>
           </React.Fragment>
           )}
       </nav>

@@ -66,6 +66,7 @@ export const QUERY_ME = gql`
         _id
         commentText
         createdAt
+        username
         reactionCount
         reactions {
           _id

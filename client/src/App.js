@@ -8,6 +8,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound'; 
+import CakeDiscussion from './components/CakeDiscussion'; 
+
+import CakeReview from './components/CakeReview'; 
+import CommentForm from './components/CommentForm'; 
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -51,9 +55,21 @@ function App() {
                 path="/signup" 
                 element={<Signup />} 
               />   
-               <Route  
+              <Route  
                 path="/login" 
                 element={<Login />} 
+              />
+              <Route 
+                path="/cakereview"
+                element={<CakeReview />}
+              /> 
+              <Route 
+                path="/commentform"
+                element={<CommentForm />}
+              /> 
+               <Route 
+                path="/cakediscussion"
+                element={<CakeDiscussion />}
               />                     
               <Route 
                 path="*" 

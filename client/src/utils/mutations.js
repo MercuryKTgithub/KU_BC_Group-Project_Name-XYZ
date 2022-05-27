@@ -27,7 +27,7 @@ export const ADD_USER = gql`
 
 export const ADD_COMMENT = gql`
   mutation AddComment($commentText: String!) {
-    addCommentt(commentText: $commentText) {
+    addComment(commentText: $commentText) {
       _id
       commentText
       createdAt
