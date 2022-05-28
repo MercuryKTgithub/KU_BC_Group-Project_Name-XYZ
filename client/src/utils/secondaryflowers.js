@@ -1,6 +1,6 @@
 export const secondaryflowers = [
   {
-    name: "camellia",
+    name: "Camellia",
     price: 1.5
   },
   {

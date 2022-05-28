@@ -73,64 +73,64 @@ const CakeOrderForm = () => {
   return (
     <div >
       <div >
-        <h3>Select primary flowers for your cake</h3>
-            {primaryflowers.map(({ name, price }, index) => {
-              return (
-                  <div  key={index} className="flex-row justify-center justify-space-between-md ">
-                    
-                    <div className="col-3 col-md-3">
-                      <input
-                        type="checkbox"
-                        id={`custom-checkbox-${index}`}
-                        name={name}
-                        value={name}
-                        checked={checkedState[index]}
-                        onChange={() => handlePrimaryOnChange(index)}
-                      />&nbsp;&nbsp;
-                      <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
-                    </div>
-                    <div className="col-3 col-md-3" >{getFormattedPrice(price)}</div>
-
-                    <div className="col-6 col-md-6" >
-                       
-                    </div>
-                    {/* <div className="col-3 col-md-3" >&nbsp;</div> */}
-                  </div>
-              );
-            })}
-            <div >
-              <div>Total:</div>
-              <div>{getFormattedPrice(total)} {flowerWishlist}</div>
-            </div>
-      </div>
-
-      <div >
-        <h3>Select secondary flowers for your cake</h3>
-        {secondaryflowers.map(({ name, price }, index) => {
-          return (
-              <div  key={index} className="flex-row justify-center justify-space-between-md ">
-                
-                <div className="col-3 col-md-3">
-                  <input
-                    type="checkbox"
-                    id={`custom-checkbox-${index}`}
-                    name={name}
-                    value={name}
-                    checked={checkedStateSecondary[index]}
-                    onChange={() => handleSecondaryOnChange(index)}
-                  />&nbsp;&nbsp;
-                  <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+        <h2>Cake's Baseline Order</h2>
+              <div  className="flex-row justify-space-between-md " style={{'backgroundColor' : "transparent" }}>
+              
+                <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
+                  <h4>Select primary flowers for your cake</h4>
+                  {primaryflowers.map(({ name, price }, index) => {
+                    return (
+                      <div>
+                        <input style={{'margin': "10px 10px" }}
+                          type="checkbox"
+                          id={`custom-checkbox-${index}`}
+                          name={name}
+                          value={name}
+                          checked={checkedState[index]}
+                          onChange={() => handlePrimaryOnChange(index)}
+                        />&nbsp;&nbsp;
+                        <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                        {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{getFormattedPrice(price)} */}
+                      </div>
+                    );
+                  })}
+                  {/* <div>Total:</div> */}
+                  {/* <div>{getFormattedPrice(total)} {flowerWishlist}</div> */}
+                  <div>{flowerWishlist}</div>
                 </div>
-                <div className="col-3 col-md-3" >{getFormattedPrice(price)}</div>
 
-                <div className="col-3 col-md-3" ></div>
-                <div className="col-3 col-md-3" >&nbsp;</div>
+                <div className="col-6 col-md-6 "style={{'backgroundColor' : "transparent"  }}>
+                  <h4>Select secondary flowers for your cake</h4>
+                  {secondaryflowers.map(({ name, price }, index) => {
+                    return (
+                      <div>
+                        <input style={{'margin': "10px 10px" }}
+                          type="checkbox"
+                          id={`custom-checkbox-${index}`}
+                          name={name}
+                          value={name}
+                          checked={checkedStateSecondary[index]}
+                          onChange={() => handleSecondaryOnChange(index)}
+                        />&nbsp;&nbsp;
+                        <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
+                        {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{getFormattedPrice(price)}  */}
+                      </div>
+                    );                    
+                  })}
+                   {/* <div>Total:</div> */}
+                   {/* <div>{getFormattedPrice(secondaryTotal)} {secondaryFlowerWishlist}</div> */}
+                   <div>{secondaryFlowerWishlist}</div>
+                </div>
+
+                
+                
+                {/* <div className="col-3 col-md-3" style={{'backgroundColor' : "lime" }} ></div>
+                <div className="col-3 col-md-3" style={{'backgroundColor' : "blue" }}>&nbsp;</div> */}
+
               </div>
-          );
-        })}
+         
         <div >
-          <div>Total:</div>
-          <div>{getFormattedPrice(secondaryTotal)} {secondaryFlowerWishlist}</div>
+          
         </div>
       </div>
     </div>
