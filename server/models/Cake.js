@@ -38,13 +38,13 @@ const cakeSchema = new Schema(
       type: Number,
       min: 0,
       max:30,
-      default: 6
+      default: 0
     },
     extraSecondary: {
       type: Number,
       min: 0,
       max: 30,
-      default: 8 
+      default: 0 
     },
     fillings: {
       type: [String]

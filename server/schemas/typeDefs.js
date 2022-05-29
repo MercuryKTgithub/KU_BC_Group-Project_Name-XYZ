@@ -31,15 +31,6 @@ const typeDefs = gql`
     user: User
   }
 
-  type Query {
-    me: User
-    users: [User]
-    user(username: String!): User
-    comments(username: String): [Comment]
-    comment(_id: ID!): Comment
-    cake(_id: ID!): Cake    
-  }
-
   type Cake {
     _id: ID
     name: String
@@ -53,6 +44,16 @@ const typeDefs = gql`
     frostings: String
     floralPrimary: String
     floralSecondary: String
+  }
+
+  type Query {
+    me: User
+    users: [User]
+    user(username: String!): User
+    comments(username: String): [Comment]
+    comment(_id: ID!): Comment
+    cake(_id: ID!): Cake   
+    cakes: [Cake] 
   }
 
   type Mutation {

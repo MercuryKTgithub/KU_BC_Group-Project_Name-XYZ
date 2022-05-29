@@ -40,6 +40,10 @@ const resolvers = {
 
     cake: async (parent, { _id }) => {
       return Cake.findOne({ _id });
+    },
+
+    cakes: async () => {
+      return Cake.find();
     }
 
   },

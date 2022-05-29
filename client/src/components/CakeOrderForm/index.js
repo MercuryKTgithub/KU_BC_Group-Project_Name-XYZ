@@ -2,18 +2,19 @@ import React, {useState} from 'react';
 // import { useQuery } from '@apollo/client'; // useQuery hook that expect a parameter passed in
 // import Auth from '../utils/auth';
 // import { QUERY_ME_BASIC } from '../utils/queries';
-// import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 // import { QUERY_ME } from '../utils/queries';
+import { useMutation } from '@apollo/client';
+import { ADD_CAKE } from '../../utils/mutations';
+
 import { primaryflowers } from '../../utils/primaryflowers';
 import { secondaryflowers } from '../../utils/secondaryflowers';
 import { cakefillings } from '../../utils/cakefillings';
 
-// const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
-
 const CakeOrderForm = () => {
   // -- Use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   // const [isChecked, setIsChecked] = useState(false);
-
+  let navigate = useNavigate();
   const [checkedState, setCheckedState] = useState(
     new Array(primaryflowers.length).fill(false)
   );
@@ -58,8 +59,8 @@ const CakeOrderForm = () => {
   const[extraPrimaryText, setExtraPrimaryText] = useState(0);
   const[extraSecondaryText, setExtraSecondaryText] = useState(0);
   const[extraThicknessText, setExtraThicknessText] = useState(0);
-  const[themeColorCodeText, setThemeColorCodeText] = useState("");
-  const[cakeNameText, setCakeNameText] = useState("");
+  const[themeColorCode, setThemeColorCodeText] = useState("");
+  const[name, setCakeNameText] = useState("");
 
   console.log(favorite);
 
@@ -93,14 +94,16 @@ const CakeOrderForm = () => {
         setThemeColorCodeText(event.target.value);
     }
   }
-  console.log(themeColorCodeText);
+  console.log(themeColorCode);
 
+  // -- required field : name
   const handleCakeNameTextChange = event => {
     setCakeNameText(event.target.value);
   }
 
-  console.log(cakeNameText);
+  console.log(name);
 
+  // reusable RadioButton class 
   const RadioButton = ({ label, value, onChange }) => {
     return (
       <label>
@@ -109,7 +112,6 @@ const CakeOrderForm = () => {
       </label>
     );
   };
- 
 ;
   const [total, setTotal] = useState(0);
   const [secondaryTotal, setSecondaryTotal] = useState(0);
@@ -204,33 +206,40 @@ const CakeOrderForm = () => {
     setfillingsWishlistArr(arrSelectedFillings);
 };
 
-
+const [addCake, { error }] = useMutation(ADD_CAKE);
 // ``````````````````````````````````````````````````
 // objective2: get the list of selected cake fillings  
 
-  // submit form
+// submit form 
+// -----------------------------------------------------
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
-//     try {
-//       await addCake({
-//         variables: { reactionBody, commentId },
-//       });
-// 
-//       // clear form value
-//       setBody('');
-//     } catch (e) {
-//       console.error(e);
-//     }
+   
+    try {
+      await addCake({
+        variables: { name, themeColorCode },
+      });
+           
+      // clear form value
+      setThemeColorCodeText('');
+      setCakeNameText('');
+          
+      navigate("/cakediscussion", {
+        state: name
+      })
+    } catch (e) {
+      console.error(e);
+    }
   };
-
+// End submit form  
+// -----------------------------------------------------
   return (
     <div >
       <div >
         <h2>Cake's Baseline Order</h2>
 
         <div >
-          <form className="flex-row justify-space-between-md" onSubmit={handleFormSubmit}  style={{'backgroundColor' : "transparent" }}>
+          <form className="flex-row justify-space-between-md" onSubmit={handleFormSubmit} style={{'backgroundColor' : "transparent" }}>
             <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
                   <h4>Select primary flowers for your cake</h4>
                   {primaryflowers.map(({ name, price }, index) => {
@@ -356,7 +365,7 @@ const CakeOrderForm = () => {
                 <h4>Enter theme color code [closest to your liking]</h4>
                   <input 
                     type="text"
-                    value={themeColorCodeText} 
+                    value={themeColorCode} 
                     onChange={handleThemeColorCodeTextChange}
                     className="form-input text-center" style={{'width' : '38%', 'fontSize': 30 }} />
               
@@ -366,17 +375,17 @@ const CakeOrderForm = () => {
                 <h4>Please give your cake a name:</h4>
                   <input 
                     type="text"
-                    value={cakeNameText} 
+                    value={name} 
                     onChange={handleCakeNameTextChange}
                     className="form-input text-left" style={{ 'fontSize': 30 }} />
                 
             </div>
             <button className="btn col-3 col-md-3" type="submit" >
-                Submit
+                Create this cake!
             </button>
-            {/* <div className="col-3 col-md-3">
-               &nbsp;
-            </div> */}
+            <div className="col-9 col-md-9">
+              {error && <div>Something went wrong...</div>};
+            </div>
           </form>
           <div className="flex-row justify-space-between-md" style={{'paddingBottom' : 30 }} >
             &nbsp;
