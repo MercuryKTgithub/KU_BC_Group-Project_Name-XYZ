@@ -7,7 +7,7 @@ import React, {useState} from 'react';
 import { primaryflowers } from '../../utils/primaryflowers';
 import { secondaryflowers } from '../../utils/secondaryflowers';
 
-const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
+// const getFormattedPrice = (price) => `$${price.toFixed(2)}`;
 
 const CakeOrderForm = () => {
   // -- Use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
@@ -25,6 +25,8 @@ const CakeOrderForm = () => {
   const [secondaryTotal, setSecondaryTotal] = useState(0);
   const [flowerWishlist, setFlowerWishlist] = useState("");
   const [secondaryFlowerWishlist, setSecondaryFlowerWishlist] = useState("");
+
+  // const [secondaryFlower, setSecondaryFlower] = useState([]);
 
 // ```````````````````````````````````````````````````
 // -- Executes a reducer function on each element of the array, resulting in a single output value
@@ -49,26 +51,29 @@ const CakeOrderForm = () => {
     setFlowerWishlist(totalPrimaryFlowers)
   };
 
-  const handleSecondaryOnChange = (position) => {
-    const updatedCheckedStateOfSecondary = checkedStateSecondary.map((item, index) =>
-      index === position ? !item : item
-    );
-    
-    setCheckedStateSecondary(updatedCheckedStateOfSecondary);
-    let totalPrimaryFlowers = '';
-    const totalPrice = updatedCheckedStateOfSecondary.reduce(
-      (sum, currentState, index) => {
-        if (currentState === true) {
-          totalPrimaryFlowers += secondaryflowers[index].name + "*";
-          return sum + secondaryflowers[index].price;
-        }
-        return sum;
-      },
-      0
-    );
-    setSecondaryTotal(totalPrice);
-    setSecondaryFlowerWishlist(totalPrimaryFlowers)
-  };
+  // const handleSecondaryOnChange = (position) => {
+  //   const updatedCheckedStateOfSecondary = checkedStateSecondary.map((item, index) =>
+  //     index === position ? !item : item
+  //   );
+  //   
+  //   setCheckedStateSecondary(updatedCheckedStateOfSecondary);
+  //   let totalPrimaryFlowers = '';
+  //   
+  //   const totalPrimaryFlowersResult = updatedCheckedStateOfSecondary(
+  //     (sum, currentState, index) => {
+  //       // if (currentState === true) {
+  //       //   totalPrimaryFlowers += secondaryflowers[index].name + "*";
+  //       //   return sum + secondaryflowers[index].price;
+  //       // }
+  //       // return sum;
+  //         totalPrimaryFlowers += secondaryflowers[index].name + "*";
+  //         return totalPrimaryFlowers;
+  //     },
+  //     0
+  //   );
+  //   // setSecondaryTotal(totalPrice);
+  //   setSecondaryFlowerWishlist(totalPrimaryFlowersResult)
+  // };
 //`````````````````````````````````````````````````
   return (
     <div >
@@ -100,7 +105,7 @@ const CakeOrderForm = () => {
                 </div>
 
                 <div className="col-6 col-md-6 "style={{'backgroundColor' : "transparent"  }}>
-                  <h4>Select secondary flowers for your cake</h4>
+                  {/* <h4>Select secondary flowers for your cake</h4>
                   {secondaryflowers.map(({ name, price }, index) => {
                     return (
                       <div>
@@ -113,13 +118,12 @@ const CakeOrderForm = () => {
                           onChange={() => handleSecondaryOnChange(index)}
                         />&nbsp;&nbsp;
                         <label htmlFor={`custom-checkbox-${index}`}>{name}</label>
-                        {/* &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{getFormattedPrice(price)}  */}
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{getFormattedPrice(price)} 
                       </div>
                     );                    
                   })}
-                   {/* <div>Total:</div> */}
-                   {/* <div>{getFormattedPrice(secondaryTotal)} {secondaryFlowerWishlist}</div> */}
-                   <div>{secondaryFlowerWishlist}</div>
+                   <div>Total:</div>
+                   <div> {secondaryFlowerWishlist}</div> */}
                 </div>
 
                 
