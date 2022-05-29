@@ -26,7 +26,8 @@ const CakeOrderForm = () => {
     new Array(cakefillings.length).fill(false)
   );
  
-  const [favorite, setFavorite] = React.useState('Round');
+  const [favorite, setFavorite] = useState('Round');  
+  const [favoriteFrosting, setFavoriteFrosting] = useState('Swiss');
 
   const handleRectCheckedChange = () => {
     setFavorite('Rectangular');
@@ -44,7 +45,62 @@ const CakeOrderForm = () => {
     setFavorite('Heart');
   };
 
+  const handleItalianFrostingCheckedChange = () => {
+    setFavoriteFrosting('Italian');
+  };
+
+  const handleSwissFrostingCheckedChange = () => {
+    setFavoriteFrosting('Swiss');
+  };
+
+  console.log(favoriteFrosting);
+
+  const[extraPrimaryText, setExtraPrimaryText] = useState(0);
+  const[extraSecondaryText, setExtraSecondaryText] = useState(0);
+  const[extraThicknessText, setExtraThicknessText] = useState(0);
+  const[themeColorCodeText, setThemeColorCodeText] = useState("");
+  const[cakeNameText, setCakeNameText] = useState("");
+
   console.log(favorite);
+
+  const min = 1;
+  const max = 30;
+
+  const handleExtraPrimaryChange = event => {
+    const numericText = Math.max(min, Math.min(max, Number(event.target.value)));
+    setExtraPrimaryText(numericText);
+  }
+
+  console.log(extraPrimaryText);
+
+  const handleExtraSecondaryChange = event => {
+    const numericText = Math.max(min, Math.min(max, Number(event.target.value)));
+    setExtraSecondaryText(numericText);
+  }
+
+  console.log(extraSecondaryText);
+
+  const handleExtraThicknessChange = event => {
+    const numericText = Math.max(min, Math.min(max, Number(event.target.value)));
+    setExtraThicknessText(numericText);
+  }
+  
+  console.log(extraThicknessText);
+
+  const handleThemeColorCodeTextChange = event => {
+    const re = /^[a-zA-Z0-9]{8}$/;
+    if (!event.target.value === '' || !re.test(event.target.value)) {
+        setThemeColorCodeText(event.target.value);
+    }
+  }
+  console.log(themeColorCodeText);
+
+  const handleCakeNameTextChange = event => {
+    setCakeNameText(event.target.value);
+  }
+
+  console.log(cakeNameText);
+
   const RadioButton = ({ label, value, onChange }) => {
     return (
       <label>
@@ -174,7 +230,7 @@ const CakeOrderForm = () => {
         <h2>Cake's Baseline Order</h2>
 
         <div >
-          <form className="flex-row justify-space-between-md " onSubmit={handleFormSubmit}  style={{'backgroundColor' : "transparent" }}>
+          <form className="flex-row justify-space-between-md" onSubmit={handleFormSubmit}  style={{'backgroundColor' : "transparent" }}>
             <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
                   <h4>Select primary flowers for your cake</h4>
                   {primaryflowers.map(({ name, price }, index) => {
@@ -222,7 +278,7 @@ const CakeOrderForm = () => {
             <div className="col-3 col-md-3" style={{'backgroundColor' : "blue" }}>&nbsp;</div> */}
 
             <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
-              <h4>Select a cake's shape</h4>
+              <h4>Select a cake's shape:</h4>
               <div>
                 <RadioButton
                   label="Round"
@@ -245,9 +301,36 @@ const CakeOrderForm = () => {
                   onChange={handleHeartCheckedChange}
                 />
               </div>
-
+              <h4>Enter number of Extra Primary Flowers: </h4>
+                <input 
+                  type="number"
+                  value={extraPrimaryText} 
+                  onChange={handleExtraPrimaryChange}
+                  className="form-input text-center" style={{ 'width' : '25%','height': '9%', 'fontSize': 20 }} />
+              <h4>Number of Extra Secondary Flowers: </h4>
+                  <input 
+                    type="number"
+                    value={extraSecondaryText} 
+                    onChange={handleExtraSecondaryChange}
+                    className="form-input text-center" style={{'width' : '25%','height': '9%', 'fontSize': 20 }} />
+              <h4>Additional sectional thickness [inches] : </h4>
+                  <input 
+                    type="number"
+                    value={extraThicknessText} 
+                    onChange={handleExtraThicknessChange}
+                    className="form-input text-center" style={{'width' : '25%','height': '9%', 'fontSize': 20 }} />
+               <h4>Choose your frosting : </h4>
+               <RadioButton
+                  label="Swiss Buttercream"
+                  value={favoriteFrosting === 'Swiss'}
+                  onChange={handleSwissFrostingCheckedChange}
+                />
+                <RadioButton
+                  label="Italian Buttercream"
+                  value={favoriteFrosting === 'Italian'}
+                  onChange={handleItalianFrostingCheckedChange}
+                />
             </div>
-
             <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
               <h4>Select fillings for your cake</h4>
                 {cakefillings.map(({ name, price }, index) => {
@@ -269,13 +352,35 @@ const CakeOrderForm = () => {
                 <div>{fillingsWishlist}</div>
                 <div>{fillingsWishlistArr}</div>
             </div>
+            <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
+                <h4>Enter theme color code [closest to your liking]</h4>
+                  <input 
+                    type="text"
+                    value={themeColorCodeText} 
+                    onChange={handleThemeColorCodeTextChange}
+                    className="form-input text-center" style={{'width' : '38%', 'fontSize': 30 }} />
+              
+            </div>
 
-
-
-            <button className="btn col-3 col-md-3" type="submit">
-              Submit
+            <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
+                <h4>Please give your cake a name:</h4>
+                  <input 
+                    type="text"
+                    value={cakeNameText} 
+                    onChange={handleCakeNameTextChange}
+                    className="form-input text-left" style={{ 'fontSize': 30 }} />
+                
+            </div>
+            <button className="btn col-3 col-md-3" type="submit" >
+                Submit
             </button>
+            {/* <div className="col-3 col-md-3">
+               &nbsp;
+            </div> */}
           </form>
+          <div className="flex-row justify-space-between-md" style={{'paddingBottom' : 30 }} >
+            &nbsp;
+          </div>
         </div>
        
       </div>

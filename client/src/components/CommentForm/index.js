@@ -17,7 +17,7 @@ const CommentForm = () => {
   
         // could potentially not exist yet, so wrap in a try/catch
       try {
-        // update me array's cache
+        // update me array's cache the comments given by this particular user, same comments set to which ADD_COMMENT will add
         const { me } = cache.readQuery({ query: QUERY_ME });
         cache.writeQuery({
           query: QUERY_ME,
