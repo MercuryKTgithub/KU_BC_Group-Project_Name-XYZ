@@ -28,7 +28,7 @@ const CakeOrderForm = () => {
   );
  
   const [favorite, setFavorite] = useState('Round');  
-  const [favoriteFrosting, setFavoriteFrosting] = useState('Swiss');
+  const [frostings, setFavoriteFrosting] = useState('Swiss');
 
   const handleRectCheckedChange = () => {
     setFavorite('Rectangular');
@@ -54,10 +54,10 @@ const CakeOrderForm = () => {
     setFavoriteFrosting('Swiss');
   };
 
-  console.log(favoriteFrosting);
+  console.log(frostings);
 
-  const[extraPrimaryText, setExtraPrimaryText] = useState(0);
-  const[extraSecondaryText, setExtraSecondaryText] = useState(0);
+  const[extraPrimary, setExtraPrimaryText] = useState(0);
+  const[extraSecondary, setExtraSecondaryText] = useState(0);
   const[extraThicknessText, setExtraThicknessText] = useState(0);
   const[themeColorCode, setThemeColorCodeText] = useState("");
   const[name, setCakeNameText] = useState("");
@@ -72,14 +72,14 @@ const CakeOrderForm = () => {
     setExtraPrimaryText(numericText);
   }
 
-  console.log(extraPrimaryText);
+  console.log(extraPrimary);
 
   const handleExtraSecondaryChange = event => {
     const numericText = Math.max(min, Math.min(max, Number(event.target.value)));
     setExtraSecondaryText(numericText);
   }
 
-  console.log(extraSecondaryText);
+  console.log(extraSecondary);
 
   const handleExtraThicknessChange = event => {
     const numericText = Math.max(min, Math.min(max, Number(event.target.value)));
@@ -123,11 +123,11 @@ const CakeOrderForm = () => {
   const [flowerWishlist, setFlowerWishlist] = useState(""); //(1)
   const [secondaryFlowerWishlist, setSecondaryFlowerWishlist] = useState(""); //(2)
 
-  const [flowerWishlistArr, setFlowerWishlistArr] = useState([]); //(3)
-  const [secondaryFlowerWishlistArr, setSecondaryFlowerWishlistArr] = useState([]); //(4)  
+  const [primaryFlowers, setFlowerWishlistArr] = useState([]); //(3)
+  const [secondaryFlowers, setSecondaryFlowerWishlistArr] = useState([]); //(4)  
 
   const [fillingsWishlist, setfillingsWishlist] = useState(""); //(5)
-  const [fillingsWishlistArr, setfillingsWishlistArr] = useState([]); //(6)
+  const [fillings, setFillingWishListArr] = useState([]); //(6)
 
 // ``````````````````````````````````````````````````
   const handlePrimaryOnChange = (position) => {
@@ -203,7 +203,7 @@ const CakeOrderForm = () => {
     );
     setFillingsTotal(totalPrice);
     setfillingsWishlist(totalSelectedFillings); // 
-    setfillingsWishlistArr(arrSelectedFillings);
+    setFillingWishListArr(arrSelectedFillings);
 };
 
 const [addCake, { error }] = useMutation(ADD_CAKE);
@@ -214,10 +214,13 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
 // -----------------------------------------------------
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-   
+    console.log(primaryFlowers);
     try {
       await addCake({
-        variables: { name, themeColorCode },
+        variables: { name, themeColorCode
+                         , primaryFlowers, secondaryFlowers
+                         , extraPrimary, extraSecondary
+                         , fillings, frostings }
       });
            
       // clear form value
@@ -259,7 +262,7 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
                     );
                   })}                 
                   <div>{flowerWishlist}</div>
-                  <div>{flowerWishlistArr}</div>
+                  <div>{primaryFlowers}</div>
             </div>
 
             <div className="col-6 col-md-6 "style={{'backgroundColor' : "transparent"  }}>
@@ -280,7 +283,7 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
                   );
                 })}               
                 <div>{secondaryFlowerWishlist}</div>
-                <div>{secondaryFlowerWishlistArr}</div>
+                <div>{secondaryFlowers}</div>
             
             </div>
             {/* <div className="col-3 col-md-3" style={{'backgroundColor' : "lime" }} ></div>
@@ -313,13 +316,13 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
               <h4>Enter number of Extra Primary Flowers: </h4>
                 <input 
                   type="number"
-                  value={extraPrimaryText} 
+                  value={extraPrimary} 
                   onChange={handleExtraPrimaryChange}
                   className="form-input text-center" style={{ 'width' : '25%','height': '9%', 'fontSize': 20 }} />
               <h4>Number of Extra Secondary Flowers: </h4>
                   <input 
                     type="number"
-                    value={extraSecondaryText} 
+                    value={extraSecondary} 
                     onChange={handleExtraSecondaryChange}
                     className="form-input text-center" style={{'width' : '25%','height': '9%', 'fontSize': 20 }} />
               <h4>Additional sectional thickness [inches] : </h4>
@@ -331,12 +334,12 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
                <h4>Choose your frosting : </h4>
                <RadioButton
                   label="Swiss Buttercream"
-                  value={favoriteFrosting === 'Swiss'}
+                  value={frostings === 'Swiss'}
                   onChange={handleSwissFrostingCheckedChange}
                 />
                 <RadioButton
                   label="Italian Buttercream"
-                  value={favoriteFrosting === 'Italian'}
+                  value={frostings === 'Italian'}
                   onChange={handleItalianFrostingCheckedChange}
                 />
             </div>
@@ -359,7 +362,7 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
                   );
                 })}                 
                 <div>{fillingsWishlist}</div>
-                <div>{fillingsWishlistArr}</div>
+                <div>{fillings}</div>
             </div>
             <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
                 <h4>Enter theme color code [closest to your liking]</h4>
