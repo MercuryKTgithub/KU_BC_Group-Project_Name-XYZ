@@ -14,7 +14,7 @@ import CakeReview from './components/CakeReview';
 import CommentForm from './components/CommentForm'; 
 import SingleCommentFocus from './components/SingleCommentFocus';
 import CakeOrderForm from './components/CakeOrderForm';
-import Checkboxes from './pages/Checkboxes';
+import SingleCakeFocus from './components/SingleCakeFocus';
 
 // import Profile from './pages/Profile';
 import SinglePhoto from './components/SinglePhoto';
@@ -82,8 +82,8 @@ function App() {
                 element={<SingleCommentFocus />} 
               />
                <Route  
-                path="/checkboxes" 
-                element={<Checkboxes />} 
+                path="/cakes/:id" 
+                element={<SingleCakeFocus />} 
               />
               <Route  
                 path="/cakeorderform" 

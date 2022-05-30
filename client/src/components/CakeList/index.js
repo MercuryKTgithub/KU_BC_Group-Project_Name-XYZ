@@ -16,7 +16,7 @@ const ReactionList = ({ cakes }) => {
 
               <div className="cake-card mb-1">
                 <div className="cake-card-header">
-                  <span className="text-light">Name of Cake  &raquo; {cake.name} | Theme Color Code  &raquo; {cake.themeColorCode} | <Link to={`/cake/${cake._id}`} className="text-error"> Select for Quoting</Link></span>
+                  <span className="text-light">Name of Cake  &raquo; {cake.name} | Theme Color Code  &raquo; {cake.themeColorCode} | <Link to={`/cakes/${cake._id}`} className="text-error"> Select for Quoting</Link></span>
                 </div>
                 <div className="cake-card-body">
                    <p className="pill mb-1" > Primary Flowers &raquo;  {cake.primaryFlowers.join(' ')} </p>

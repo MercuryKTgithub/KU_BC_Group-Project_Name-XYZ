@@ -2,7 +2,7 @@ import React from 'react';
 import Auth from '../../utils/auth'; 
 // import { Link } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
-import { QUERY_USER } from '../../utils/queries';
+import { QUERY_ME_BASIC } from '../../utils/queries';
 import { ADD_CAKE } from '../../utils/mutations';
 import { useQuery, useMutation } from '@apollo/client'; // useQuery hook that expects a parameter passed in
 import CommentList from '../../components/CommentList';
@@ -20,7 +20,7 @@ const CakeDiscussion = () => {
   // console.log(user);
 
   const { username: userParam } = useParams();   // console.log(userParam); // test only
-  const { loading, data, error } = useQuery(userParam ? QUERY_USER : QUERY_ME , {
+  const { loading, data, error } = useQuery(userParam ? QUERY_ME : QUERY_ME_BASIC , {
     variables: { username: userParam },
   });
   const user = data?.me || data?.user || {};
@@ -29,12 +29,24 @@ const CakeDiscussion = () => {
     return <div>Loading...</div>;
   }
 
+  // submit form
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    // try {
+    //   
+    // } catch (e) {
+    //   console.error(e);
+    // }
+    
+  };
+
   return (
     <main>
       <div className='flex-row justify-space-between'>
        
       <div className={`col-12 col-lg-8 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}>
-         <h2>Discussion Dashboad </h2>
+         <h2>Cake Order Portal </h2>
       </div><div className="col-12 col-lg-3 mb-3"> </div>       
 
       {/* <div className="col-12 col-lg-8 mb-3">
@@ -42,18 +54,18 @@ const CakeDiscussion = () => {
       </div><div className="col-12 col-lg-3 mb-3"><h3>Cake List by </h3><h5> {user.username}</h5> </div> */}
 
       <div className={`col-12 col-lg-7 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}>         
-      <h3>Your most recent cake creation:</h3>
+      <h3>Order Preview: </h3>
       </div>
       <div className="col-12 col-lg-4 mb-3">  
-      <h4>  Cake List by </h4><h5> {user.username}</h5>
+      <h4> </h4>Cake Checkout for<h5> {user.username}</h5>
       </div> 
 
       
 
-      <div className={`col-12 col-lg-7 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}> 
+      <div className={`col-12 col-lg-12 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}> 
       <div className="card mb-1" >
           <div className="card-header">
-            <span className="text-light">Name of Cake  &raquo; {user.cakes[user.cakes.length -1].name} &bull; Theme Color Code  &raquo; {user.cakes[user.cakes.length -1].themeColorCode} &raquo; <Link to={`/cakes/${user.cakes[user.cakes.length -1]._id}`} className="text-quatrinary" > Order this cake now!</Link></span>
+            <span className="text-light">Name of Cake  &raquo; {user.cakes[user.cakes.length -1].name} &bull; Theme Color Code  &raquo; {user.cakes[user.cakes.length -1].themeColorCode}</span>
           </div>
           <div className="cake-card-body">
             <p className="pill mb-1" > Primary Flowers &raquo;  {(user.cakes[user.cakes.length -1].primaryFlowers.length === 0 ? 'None' : user.cakes[user.cakes.length -1].primaryFlowers.join(', ')) } </p>
@@ -64,24 +76,60 @@ const CakeDiscussion = () => {
             <p className="pill mb-1"> Number of Extra Primary Flowers &raquo;  {user.cakes[user.cakes.length -1].extraPrimary} </p>
             <p className="pill mb-1"> Number of Extra Secondary Flowers &raquo;  {user.cakes[user.cakes.length -1].extraPrimary} </p>
             <p className="pill mb-1"> Additional sectional thickness &raquo;  {user.cakes[user.cakes.length -1].extraThickness} in.</p>
-          
-            <div key={user.cakes[user.cakes.length -1]._id} style={{ wordBreak: 'break-all' }} >
-              
-            </div>
+            <p></p>
+            <p style={{'marginLeft': '1%', 'marginTop': 0 }}>
+              <div className='card'>
+                <div className="card-header">
+                  <span className="text-light">Cake's name : {user.cakes[user.cakes.length -1].name} &bull; Theme Color Code : {user.cakes[user.cakes.length -1].themeColorCode}</span>
+                </div>
+                <div className="cake-card-body" style={{ wordBreak: 'break-all' }} >
+                  <form className="flex-row justify-center justify-space-between-md " onSubmit={handleFormSubmit}>
+                    <p>Customer {user.username} &bull; Email Contact:  {user.email}</p>
+                    Your cake package comes with an FEC Online Photo Album hosted for 6 months.<br></br>
+                    Up-front deposit amount for this order reservation is:<br></br>
+                    <div style={{ 'display' : 'flex', 'height': '17%', 'marginBottom': 20 }}>
+
+                      <label style={{ 'width' : '13%','height': '15%', 'fontSize': 42, 'marginLeft': '35%', 'marginTop': 5 }}>$</label>
+                      <input type="number" value={20.00} className="form-input text-right" 
+                        style={{ 'width' : '18%','height': '17%', 'fontSize': 28, 'paddingRight': 15, 'marginLeft': -20 }} />
+
+                      <button className="btn col-3 col-md-3" type="submit">
+                        Submit
+                      </button>
+                    </div>
+                                     
+                    <p style={{ 'fontFamily': 'var(--designer-font-primary)', 'fontSize': 24, 'letterSpacing': 1 }}>Thank you for letting FEC Designer serve you!</p>
+
+                  </form>
+                </div>
+              </div>
+            </p>
           </div>
         </div>
              
-        {loading ? (<div>Loading...</div>) : ( <CommentList comments={user.comments} />)}
-       <CommentForm />
+         
+        
       </div>
   
       <div className="col-12 col-lg-4 mb-3">  
-          {loading ? (<div>Loading...</div>) : ( <CakeList cakes={user.cakes} />)}
-          {/* <CakeList cakes={user.cakes} /> */}
+          {/* {loading ? (<div>Loading...</div>) : ( <CakeList cakes={user.cakes} />)} */}
+          
       </div>  
         
       <div className={`col-12 col-lg-7 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}>         
-        {/* <CommentForm /> */}
+        {/* <form className="flex-row justify-center justify-space-between-md " onSubmit={handleFormSubmit}>
+            
+            Cake package comes with online photo album hosted for 6 months.
+            Upfront deposit amount for this order reservation is:
+            $<input 
+                type="number"
+                value={20} 
+                className="form-input text-center" style={{ 'width' : '45%','height': '9%', 'fontSize': 20 }} />
+
+          <button className="btn col-3 col-md-3" type="submit">
+            Submit
+          </button>
+        </form> */}
       </div>
       <div className="col-12 col-lg-4 mb-3">  </div> 
 
