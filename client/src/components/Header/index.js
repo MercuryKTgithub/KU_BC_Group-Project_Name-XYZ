@@ -13,18 +13,17 @@ const Header = () => {
     <header className="bg-secondary mb-4 py-1 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         
-          <h1>FEC Online Designer Cakes </h1>
-          <p style={{ 'fontFamily': 'Fahkwang', fontSize : 25, fontWeight: 400, 'margin': 0,'color': 'var(--error)'}}> Home of <strong>F</strong>lorally 
-          <strong> E</strong>nchanting<strong> C</strong>akes for Wedding & Birthday Occasions </p>
+          <h1><span style={{'letter-spacing': '4px'}} >FEC</span> Online Designer Cakes </h1>
+          <p style={{ 'fontFamily': 'Fahkwang', fontSize : 22, fontWeight: 400, 'margin': 0,'color': 'var(--error)'}}> Home of the<span style={{ 'fontFamily': 'Playball', fontSize : 24}}> F</span> lorally 
+          <span style={{ 'fontFamily': 'Playball', fontSize : 26}}> E</span>nchanting<span style={{ 'fontFamily': 'Playball', fontSize : 24}}> C</span>akes for Wedding & Birthday Occasions </p>
         
 
         <nav className="text-center">
         {Auth.loggedIn() ? (
           <React.Fragment>
             {/* <Link to="/profile">Guest</Link> */}
-            <a href="/" onClick={logout}>
-              Logout
-            </a>
+            <Link to="/">Pricing</Link>
+            <a href="/" onClick={logout}>Logout</a>
             {/* <Link to="/checkboxes">Checkboxes</Link> */}
           </React.Fragment>
           ) : (
@@ -32,7 +31,8 @@ const Header = () => {
             
             <Link to="/login">Login</Link>
             <Link to="/signup">Register</Link>
-            <Link to="/">About</Link>
+            {/* <Link to="/">About</Link> */}
+            <Link to="/">Pricing</Link>
           </React.Fragment>
           )}
       </nav>
