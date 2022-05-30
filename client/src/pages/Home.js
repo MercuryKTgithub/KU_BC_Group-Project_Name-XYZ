@@ -4,6 +4,7 @@ import Auth from '../utils/auth';
 // import { QUERY_ME_BASIC } from '../utils/queries';
 import { Link } from 'react-router-dom';
 import { QUERY_ME } from '../utils/queries';
+import PhotoList from '../components/PhotoList';
 const Home = () => {
   // -- Use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData } = useQuery( QUERY_ME );
@@ -38,7 +39,7 @@ const Home = () => {
           | <Link to={`/cakeorderform`}><span> Order Cake [Kimberly's Test] </span></Link>| </div> ) : null}
         
         <span className="col-12 col-lg-7 mb-7 form-input">
-        <Link to={`/singlephoto`}><span> Create linkable photo + on mouse-over show a second photo [group member] </span></Link>
+        <Link to={`/singlephoto`}><span> Gallery </span></Link>
         </span>
         
         <span className="col-12 col-lg-7 mb-7 form-input">

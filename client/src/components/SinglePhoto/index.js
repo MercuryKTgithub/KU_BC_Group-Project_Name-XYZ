@@ -4,7 +4,8 @@ import Auth from '../../utils/auth';
 // import { QUERY_ME_BASIC } from '../utils/queries';
 import { Link } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
-//import PhotoList from '../PhotoList';
+import photo from '../../assets/small/wk-1.jpg';
+
 
 
 
@@ -40,7 +41,7 @@ const Home = () => {
           <h4> </h4>
           <p></p>
           <img
-            src=""
+            src={photo}
             alt="example"
           />
         
