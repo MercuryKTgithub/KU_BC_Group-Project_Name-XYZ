@@ -21,7 +21,8 @@ const Header = () => {
         <nav className="text-center">
         {Auth.loggedIn() ? (
           <React.Fragment>
-          <Link to="/">Pricing</Link>
+          <Link to="/">Home</Link>
+          <Link to="/pricing">Pricing</Link>
           <Link to="/cakeorderform">Orders</Link>
           <a href="/" onClick={logout}>Logout</a>
           </React.Fragment>

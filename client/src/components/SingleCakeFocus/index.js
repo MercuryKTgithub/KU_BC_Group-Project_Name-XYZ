@@ -1,24 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Auth from '../../utils/auth'; 
-// import { Link } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
 import { QUERY_ME_BASIC } from '../../utils/queries';
-import { ADD_CAKE } from '../../utils/mutations';
-import { useQuery, useMutation } from '@apollo/client'; // useQuery hook that expects a parameter passed in
-import CommentList from '../../components/CommentList';
-import CommentForm from '../../components/CommentForm';
-import CakeList from '../../components/CakeList';
-import { Link } from 'react-router-dom';
+import { useQuery } from '@apollo/client'; // useQuery hook that expects a parameter passed in
 import { useParams } from 'react-router-dom';
 
  
 const CakeDiscussion = () => {
-  // const { data: userData } = useQuery( QUERY_ME );
-  // const user = userData?.me
-  // const loggedIn = Auth.loggedIn(); // is the user logged-in?
-  // // console.log("mmmmmmmmmmmmmmmmmmmmmmmm");
-  // console.log(user);
-
+  const [payTotal, setPayTotal] = useState('');
   const { username: userParam } = useParams();   // console.log(userParam); // test only
   const { loading, data, error } = useQuery(userParam ? QUERY_ME : QUERY_ME_BASIC , {
     variables: { username: userParam },
@@ -29,16 +18,29 @@ const CakeDiscussion = () => {
     return <div>Loading...</div>;
   }
 
+ 
+
+  const handleChange = event => {
+    if (event.target.value.length >= 20) {
+      setPayTotal(event.target.value);
+      setPayTotal('');
+    }
+  };
+
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    // try {
-    //   
-    // } catch (e) {
-    //   console.error(e);
-    // }
-    
+    try {
+      // await addReaction({
+      //   variables: { payTotal },
+      // });
+
+      // clear form value
+      setPayTotal('');
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
@@ -77,7 +79,7 @@ const CakeDiscussion = () => {
             <p className="pill mb-1"> Number of Extra Secondary Flowers &raquo;  {user.cakes[user.cakes.length -1].extraPrimary} </p>
             <p className="pill mb-1"> Additional sectional thickness &raquo;  {user.cakes[user.cakes.length -1].extraThickness} in.</p>
             <p></p>
-            <p style={{'marginLeft': '1%', 'marginTop': 0 }}>
+            <div style={{'marginLeft': '1%', 'marginTop': 0 }}>
               <div className='card'>
                 <div className="card-header">
                   <span className="text-light">Cake's name : {user.cakes[user.cakes.length -1].name} &bull; Theme Color Code : {user.cakes[user.cakes.length -1].themeColorCode}</span>
@@ -85,17 +87,19 @@ const CakeDiscussion = () => {
                 <div className="cake-card-body" style={{ wordBreak: 'break-all' }} >
                   <form className="flex-row justify-center justify-space-between-md " onSubmit={handleFormSubmit}>
                     <p>Customer {user.username} &bull; Email Contact:  {user.email}</p>
+
                     Your cake package comes with an FEC Online Photo Album hosted for 6 months.<br></br>
                     Up-front deposit amount for this order reservation is:<br></br>
                     <div style={{ 'display' : 'flex', 'height': '17%', 'marginBottom': 20 }}>
 
                       <label style={{ 'width' : '13%','height': '15%', 'fontSize': 42, 'marginLeft': '35%', 'marginTop': 5 }}>$</label>
-                      <input type="number" value={20.00} className="form-input text-right" 
-                        style={{ 'width' : '18%','height': '17%', 'fontSize': 28, 'paddingRight': 15, 'marginLeft': -20 }} />
+                      <input type="text" value={'20.00'} className="form-input text-right" onChange={handleChange}
+                             style={{ 'width' : '20%','height': '17%', 'fontSize': 28, 'paddingRight': 15, 'marginLeft': -20 }} />
 
-                      <button className="btn col-3 col-md-3" type="submit">
+                      <button className="btn col-3 col-md-3" type="submit" >
                         Submit
                       </button>
+                      {/* <NumberFormat value={2456981} displayType={'text'} thousandSeparator={true} prefix={'$'} /> */}
                     </div>
                                      
                     <p style={{ 'fontFamily': 'var(--designer-font-primary)', 'fontSize': 24, 'letterSpacing': 1 }}>Thank you for letting FEC Designer serve you!</p>
@@ -103,7 +107,7 @@ const CakeDiscussion = () => {
                   </form>
                 </div>
               </div>
-            </p>
+            </div>
           </div>
         </div>
              
