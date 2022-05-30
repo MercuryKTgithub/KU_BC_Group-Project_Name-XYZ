@@ -55,8 +55,8 @@ export const ADD_REACTION = gql`
   }
 `;
 export const ADD_CAKE = gql`
-  mutation AddCake($name: String!, $themeColorCode: String!, $shape: String , $primaryFlowers: [String], $specialNote: String, $secondaryFlowers: [String], $extraPrimary: Int, $extraSecondary: Int, $extraThickness: Int ,$fillings: [String], $frostings: String, $floralPrimary: String, $floralSecondary: String) {
-    addCake(name: $name, themeColorCode: $themeColorCode, shape: $shape, primaryFlowers: $primaryFlowers, specialNote: $specialNote, secondaryFlowers: $secondaryFlowers, extraPrimary: $extraPrimary, extraSecondary: $extraSecondary, extraThickness: $extraThickness, fillings: $fillings, frostings: $frostings, floralPrimary: $floralPrimary, floralSecondary: $floralSecondary) {
+  mutation AddCake($name: String!, $themeColorCode: String!, $shape: String , $primaryFlowers: [String], $specialNote: String, $secondaryFlowers: [String], $extraPrimary: Int, $extraSecondary: Int, $extraThickness: Int ,$fillings: [String], $frostings: String) {
+    addCake(name: $name, themeColorCode: $themeColorCode, shape: $shape, primaryFlowers: $primaryFlowers, specialNote: $specialNote, secondaryFlowers: $secondaryFlowers, extraPrimary: $extraPrimary, extraSecondary: $extraSecondary, extraThickness: $extraThickness, fillings: $fillings, frostings: $frostings) {
       _id
       name
       themeColorCode
@@ -70,8 +70,6 @@ export const ADD_CAKE = gql`
       fillings
       frostings
       username
-      floralPrimary
-      floralSecondary
     }
   }
 `;

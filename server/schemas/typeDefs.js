@@ -47,8 +47,6 @@ const typeDefs = gql`
     frostings: String
     createdAt: String
     username: String
-    floralPrimary: String
-    floralSecondary: String
   }
 
   type Query {
@@ -76,8 +74,6 @@ const typeDefs = gql`
                          , extraThickness: Int
                          , fillings: [String]
                          , frostings: String
-                         , floralPrimary: String
-                         , floralSecondary: String
                          ): Cake
     updateUser(specialNote: String): User 
 

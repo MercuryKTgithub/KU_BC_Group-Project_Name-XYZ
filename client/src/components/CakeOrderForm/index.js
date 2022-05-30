@@ -13,24 +13,23 @@ const CakeOrderForm = () => {
   const { data: userData } = useQuery( QUERY_ME );
   const user = userData?.me
   // const loggedIn = Auth.loggedIn(); // is the user logged-in?
-  console.log("ssssssssssssssssssssssss");
+  console.log("mmmmmmmmmmm");
   console.log(user);
-  console.log("ssssssssssssssssssssssss");
+  console.log("mmmmmmmmmm");
   // const [addCake, { error }] = useMutation(ADD_CAKE);
   
   const [addCake, { error }] = useMutation(ADD_CAKE, {
     update(cache, { data: { addCake } }) {
-  
-        // could potentially not exist yet, so wrap in a try/catch
       try {
-        // update me array's cache the comments given by this particular user, same comments set to which ADD_COMMENT will add
         const { me } = cache.readQuery({ query: QUERY_ME });
+        // me.push(addCake);
         cache.writeQuery({
           query: QUERY_ME,
           data: { me: { ...me, cakes: [...me.cakes, addCake] } },
         });
+       
       } catch (e) {
-        console.warn("First comment insertion by user!")
+        console.warn("First cake insertion by user!")
       }
   
     }
@@ -88,6 +87,7 @@ const CakeOrderForm = () => {
 
   const min = 1;
   const max = 30;
+  const maxinch = 12;
 
   const handleExtraPrimaryChange = event => {
     const numericText = Math.max(min, Math.min(max, Number(event.target.value)));
@@ -104,7 +104,7 @@ const CakeOrderForm = () => {
   console.log(extraSecondary);
 
   const handleExtraThicknessChange = event => {
-    const numericText = Math.max(min, Math.min(max, Number(event.target.value)));
+    const numericText = Math.max(min, Math.min(maxinch, Number(event.target.value)));
     setExtraThicknessText(numericText);
   }
   
@@ -392,7 +392,7 @@ const CakeOrderForm = () => {
                     type="text"
                     value={themeColorCode} 
                     onChange={handleThemeColorCodeTextChange}
-                    className="form-input text-center" style={{'width' : '38%', 'fontSize': 30 }} />
+                    className="form-input text-center" style={{'width' : '38%', 'fontSize': 26 }} />
               
             </div>
 
@@ -402,7 +402,7 @@ const CakeOrderForm = () => {
                     type="text"
                     value={name} 
                     onChange={handleCakeNameTextChange}
-                    className="form-input text-left" style={{ 'fontSize': 30 }} />
+                    className="form-input text-left" style={{ 'fontSize': 26 }} />
                 
             </div>
             <button className="btn col-3 col-md-3" type="submit" >

@@ -32,14 +32,14 @@ const cakeSchema = new Schema(
       required: false,
       minlength: 4  // must enter "None" if not implementing any comment/feedback for guest
     },
-    floralPrimary:{
-      type: String,
-      required: false
-    },
-    floralSecondary:{
-      type: String,
-      required: false
-    },
+    // floralPrimary:{
+    //   type: String,
+    //   required: false
+    // },
+    // floralSecondary:{
+    //   type: String,
+    //   required: false
+    // },
     extraPrimary: {
       type: Number,
       min: 0,

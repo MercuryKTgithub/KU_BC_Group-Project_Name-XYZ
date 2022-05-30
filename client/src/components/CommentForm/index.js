@@ -19,10 +19,13 @@ const CommentForm = () => {
       try {
         // update me array's cache the comments given by this particular user, same comments set to which ADD_COMMENT will add
         const { me } = cache.readQuery({ query: QUERY_ME });
+        // me.push(addComment);
         cache.writeQuery({
           query: QUERY_ME,
           data: { me: { ...me, comments: [...me.comments, addComment] } },
         });
+        // me.pop(addComment);
+
       } catch (e) {
         console.warn("First comment insertion by user!")
       }
