@@ -27,8 +27,8 @@ const CakeOrderForm = () => {
     new Array(cakefillings.length).fill(false)
   );
  
-  const [favorite, setFavorite] = useState('Round');  
-  const [frostings, setFavoriteFrosting] = useState('Swiss');
+  const [shape, setFavorite] = useState('Round');  
+  const [frostings, setFavoriteFrosting] = useState('Swiss Buttercream');
 
   const handleRectCheckedChange = () => {
     setFavorite('Rectangular');
@@ -47,22 +47,22 @@ const CakeOrderForm = () => {
   };
 
   const handleItalianFrostingCheckedChange = () => {
-    setFavoriteFrosting('Italian');
+    setFavoriteFrosting('Italian Buttercream');
   };
 
   const handleSwissFrostingCheckedChange = () => {
-    setFavoriteFrosting('Swiss');
+    setFavoriteFrosting('Swiss Buttercream');
   };
 
   console.log(frostings);
 
   const[extraPrimary, setExtraPrimaryText] = useState(0);
   const[extraSecondary, setExtraSecondaryText] = useState(0);
-  const[extraThicknessText, setExtraThicknessText] = useState(0);
+  const[extraThickness, setExtraThicknessText] = useState(0);
   const[themeColorCode, setThemeColorCodeText] = useState("");
   const[name, setCakeNameText] = useState("");
 
-  console.log(favorite);
+  console.log(shape);
 
   const min = 1;
   const max = 30;
@@ -86,7 +86,7 @@ const CakeOrderForm = () => {
     setExtraThicknessText(numericText);
   }
   
-  console.log(extraThicknessText);
+  console.log(extraThickness);
 
   const handleThemeColorCodeTextChange = event => {
     const re = /^[a-zA-Z0-9]{8}$/;
@@ -217,9 +217,9 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
     console.log(primaryFlowers);
     try {
       await addCake({
-        variables: { name, themeColorCode
+        variables: { name, themeColorCode, shape
                          , primaryFlowers, secondaryFlowers
-                         , extraPrimary, extraSecondary
+                         , extraPrimary, extraSecondary, extraThickness
                          , fillings, frostings }
       });
            
@@ -261,8 +261,8 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
                       </div>
                     );
                   })}                 
-                  <div>{flowerWishlist}</div>
-                  <div>{primaryFlowers}</div>
+                  {/* <div>{flowerWishlist}</div> */}
+                  {/* <div>{primaryFlowers}</div> */}
             </div>
 
             <div className="col-6 col-md-6 "style={{'backgroundColor' : "transparent"  }}>
@@ -282,8 +282,8 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
                     </div>
                   );
                 })}               
-                <div>{secondaryFlowerWishlist}</div>
-                <div>{secondaryFlowers}</div>
+                {/* <div>{secondaryFlowerWishlist}</div> */}
+                {/* <div>{secondaryFlowers}</div> */}
             
             </div>
             {/* <div className="col-3 col-md-3" style={{'backgroundColor' : "lime" }} ></div>
@@ -294,22 +294,22 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
               <div>
                 <RadioButton
                   label="Round"
-                  value={favorite === 'Round'}
+                  value={shape === 'Round'}
                   onChange={handleRoundCheckedChange}
                 />
                 <RadioButton
                   label="Rectangular"
-                  value={favorite === 'Rectangular'}
+                  value={shape === 'Rectangular'}
                   onChange={handleRectCheckedChange}
                 />
                 <RadioButton
                   label="Square"
-                  value={favorite === 'Square'}
+                  value={shape === 'Square'}
                   onChange={handleSquareCheckedChange}
                 />
                 <RadioButton
                   label="Heart"
-                  value={favorite === 'Heart'}
+                  value={shape === 'Heart'}
                   onChange={handleHeartCheckedChange}
                 />
               </div>
@@ -328,18 +328,18 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
               <h4>Additional sectional thickness [inches] : </h4>
                   <input 
                     type="number"
-                    value={extraThicknessText} 
+                    value={extraThickness} 
                     onChange={handleExtraThicknessChange}
                     className="form-input text-center" style={{'width' : '25%','height': '9%', 'fontSize': 20 }} />
                <h4>Choose your frosting : </h4>
                <RadioButton
                   label="Swiss Buttercream"
-                  value={frostings === 'Swiss'}
+                  value={frostings === 'Swiss Buttercream'}
                   onChange={handleSwissFrostingCheckedChange}
                 />
                 <RadioButton
                   label="Italian Buttercream"
-                  value={frostings === 'Italian'}
+                  value={frostings === 'Italian Buttercream'}
                   onChange={handleItalianFrostingCheckedChange}
                 />
             </div>
@@ -361,8 +361,8 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
                     </div>
                   );
                 })}                 
-                <div>{fillingsWishlist}</div>
-                <div>{fillings}</div>
+                {/* <div>{fillingsWishlist}</div> */}
+                {/* <div>{fillings}</div> */}
             </div>
             <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
                 <h4>Enter theme color code [closest to your liking]</h4>

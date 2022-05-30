@@ -14,7 +14,7 @@ const CakeDiscussion = () => {
   // console.log("mmmmmmmmmmmmmmmmmmmmmmmm");
   console.log(user);
 
-  // Attemp to cache data from QUERY_ME so it can be read in CommentForm 
+  // Attemp to cache data from QUERY_ME so it can be read in CommentForm upon form-submission
   const { data: userData2Cache } = useQuery(QUERY_ME, {
     update(cache, { data: { addComment } }) {
       try {
@@ -51,7 +51,7 @@ const CakeDiscussion = () => {
 
         {loggedIn ? (
           <div className="col-12 col-lg-3 mb-3">
-            <h4>  Cake Order Review for </h4>
+            <h4>  Cake Review for </h4>
             <h5>  {user.username}</h5>
           </div> ) : (<div><h4>Cake Order Review for</h4></div>)}
           

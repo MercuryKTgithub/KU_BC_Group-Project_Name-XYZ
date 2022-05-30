@@ -26,6 +26,12 @@ const userSchema = new Schema(
         ref: 'Comment'
       }
     ],
+    cakes: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Cake'
+      }
+    ],
   },
   {
     toJSON: {

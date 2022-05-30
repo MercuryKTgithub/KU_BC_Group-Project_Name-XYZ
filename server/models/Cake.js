@@ -1,4 +1,6 @@
 const { Schema, model } = require('mongoose');
+const dateFormat = require('../utils/dateFormat');
+
 const cakeSchema = new Schema(
   {
     name: {
@@ -10,6 +12,10 @@ const cakeSchema = new Schema(
       type: String,
       required: true,
       minlength: 7 // seven letter/digit code from catelog
+    },
+    shape:{
+      type: String,
+      required: false
     },
     primaryFlowers: {
       type: [String],
@@ -46,6 +52,21 @@ const cakeSchema = new Schema(
       max: 30,
       default: 0 
     },
+    extraThickness: {
+      type: Number,
+      min: 0,
+      max: 12,
+      default: 0 
+    },
+    createdAt: {
+      type: Date,
+      default: Date.now,
+      get: timestamp => dateFormat(timestamp)
+    },
+    username: {
+      type: String,
+      required: false
+    },
     fillings: {
       type: [String]
     },
@@ -64,58 +85,4 @@ const cakeSchema = new Schema(
 const Cake = model('Cake', cakeSchema);
 
 module.exports = Cake;
-
-// const { Schema, model } = require('mongoose');
-//
-// const cakeSchema = new Schema({
-//   name: {
-//     type: String,
-//     required: true,
-//     trim: true
-//   },
-//
-  // // primaryFlowers: {
-  // //   type: [String]
-  // // 
-  // // },
-//
-// //   secondaryFlowers: {
-// //     type: [String]
-// //   },
-// //
-  // extraPrimary: {
-  //   type: Number,
-  //   min: 0,
-  //   max:30,
-  //   default: 0
-  // },
-// //   extraSecondary: {
-// //     type: Number,
-// //     min: 0,
-// //     max:30,
-// //     default: 0
-// //   },
-// //
-// //   fillings: {
-// //     type: [String]
-// //   },
-// //   frostings:{
-// //     type: [String]
-// //   },
-//
-//   themecode:{
-//     type: String,
-//     required: true
-//   }
-//
-//   },
-//   {
-//     toJSON: {
-//       virtuals: true
-//     }
-//   }
-// );
-//
-// const Cake = mongoose.model('Cake', cakeSchema);
-//
-// module.exports = Cake;
+ 

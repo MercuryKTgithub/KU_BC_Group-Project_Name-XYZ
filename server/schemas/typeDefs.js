@@ -7,6 +7,7 @@ const typeDefs = gql`
     email: String
     commentCount: Int
     comments: [Comment]
+    cakes: [Cake]
      
   }
 
@@ -35,13 +36,17 @@ const typeDefs = gql`
     _id: ID
     name: String
     themeColorCode: String
+    shape: String
     primaryFlowers: [String]
     specialNote: String
     secondaryFlowers: [String]
     extraPrimary: Int
     extraSecondary: Int
+    extraThickness: Int
     fillings: [String]
     frostings: String
+    createdAt: String
+    username: String
     floralPrimary: String
     floralSecondary: String
   }
@@ -53,7 +58,7 @@ const typeDefs = gql`
     comments(username: String): [Comment]
     comment(_id: ID!): Comment
     cake(_id: ID!): Cake   
-    cakes: [Cake] 
+    cakes(username: String): [Cake] 
   }
 
   type Mutation {
@@ -62,16 +67,20 @@ const typeDefs = gql`
     addComment(commentText: String!): Comment
     addReaction(commentId: ID!, reactionBody: String!): Comment
     addCake(name: String!, themeColorCode: String!
+                         , shape: String
                          , primaryFlowers: [String] 
                          , specialNote: String
                          , secondaryFlowers: [String]
                          , extraPrimary: Int
                          , extraSecondary: Int
+                         , extraThickness: Int
                          , fillings: [String]
                          , frostings: String
                          , floralPrimary: String
                          , floralSecondary: String
                          ): Cake
+    updateUser(specialNote: String): User 
+
   }
 
 `;
