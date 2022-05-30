@@ -144,6 +144,7 @@ export const QUERY_ME = gql`
         extraSecondary
         extraThickness
         username
+        createdAt
         fillings
         frostings
       }
@@ -171,6 +172,7 @@ export const QUERY_ME_BASIC = gql`
         extraSecondary
         extraThickness
         username
+        createdAt
         fillings
         frostings
       }

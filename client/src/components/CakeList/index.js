@@ -1,36 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// will receive two props
-const CakeList = ({ cakes, title }) => {
+const ReactionList = ({ cakes }) => {
   return (
-    <div>
-      <h4>{title}</h4>
-      {cakes &&
-        cakes.map(cake => (
-          <div key={cake._id} className="card mb-3">
-           
-            {/* establish link to user's profile such that profile/username: */}
-            <p className="card-header">
-              {/* <Link to={`/------/${cake.username}`} style={{ fontWeight: 700 }} 
-              className="text-light" >{cake.username}</Link>{' '}cake on {cake.createdAt} */}
+    <div className="cake-card mb-1">
+      <div className="cake-card-header">
+        <span className="text-light">{cakes[0].username}'s Cake Creations</span>
+      </div>
+      <div className="cake-card-body">
+        {cakes &&
+          cakes.map(cake => (
+            <div key={cake._id} style={{ wordBreak: 'break-all' }} >
+              <span className="mb-1 cake-card-body">
+              Created on {cake.createdAt}</span>
 
-              <span className="text-light" >{cake.name}</span>{' '}cakeed on {cake.createdAt}
-            </p>
+              <div className="cake-card mb-1">
+                <div className="cake-card-header">
+                  <span className="text-light">Name of Cake  &raquo; {cake.name} | Theme Color Code  &raquo; {cake.themeColorCode} | <Link to={`/cake/${cake._id}`} className="text-error"> Select for Quoting</Link></span>
+                </div>
+                <div className="cake-card-body">
+                   <p className="pill mb-1" > Primary Flowers &raquo;  {cake.primaryFlowers} </p>
+                   <p className="pill mb-1" > Secondary Flowers &raquo;  {cake.secondaryFlowers} </p>
+                   <p className="pill mb-1"> Select a cake's shape &raquo;  {cake.shape} </p>
+                   <p className="pill mb-1"> Choice of Frosting &raquo; {cake.frostings} </p>
+                   <p className="pill mb-3" > Select fillings for your cake &raquo;  {cake.fillings}, Chocolate Ganache, Chocolate Mouse, Kiwi, Pinapple, Pinapple Cream, Rasberry, Rasberry Mouse,  Strowberry</p>
+                   <p className="pill mb-1"> Number of Extra Primary Flowers &raquo;  {cake.extraPrimary} </p>
+                   <p className="pill mb-1"> Number of Extra Secondary Flowers &raquo;  {cake.extraPrimary} </p>
+                   <p className="pill mb-1"> Additional sectional thickness &raquo;  {cake.extraThickness} in.</p>
+                  <div key={cake._id} style={{ wordBreak: 'break-all' }} >
+                  </div>
+                </div>
+              </div>
+              <div className="mb-3">
 
-            <div className="card-body">
-                <p style={{ wordBreak: 'break-all' }}>{cake.cakeText}</p>
-                <span><strong>| </strong> Reactions: {cake.reactionCount}<strong> |</strong></span>
-                <Link to={`/cake/${cake._id}`} className="mb-0">
-                  <span className="mb-0"> Pick to Order 
-                  </span>
-                </Link><span><strong> |</strong></span>
-            </div>
 
-          </div>
-        ))}
+              </div>
+            </div>  
+          ))}
+      </div>
+        {/* <Link to={`/profile/${cake.username}`} style={{ fontWeight: 700 }}>
+        {cake.username} on {cake.createdAt}
+        </Link> */}
     </div>
   );
 };
 
-export default CakeList;
+export default ReactionList;
