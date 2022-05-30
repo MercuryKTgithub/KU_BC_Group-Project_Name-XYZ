@@ -1,19 +1,41 @@
 import React, {useState} from 'react';
-// import { useQuery } from '@apollo/client'; // useQuery hook that expect a parameter passed in
-// import Auth from '../utils/auth';
-// import { QUERY_ME_BASIC } from '../utils/queries';
+import { useQuery, useMutation } from '@apollo/client'; // useQuery hook that expect a parameter passed in
 import { useNavigate } from 'react-router-dom';
-// import { QUERY_ME } from '../utils/queries';
-import { useMutation } from '@apollo/client';
+import { QUERY_ME } from '../../utils/queries';
 import { ADD_CAKE } from '../../utils/mutations';
+// import Auth from '../../utils/auth';
 
 import { primaryflowers } from '../../utils/primaryflowers';
 import { secondaryflowers } from '../../utils/secondaryflowers';
 import { cakefillings } from '../../utils/cakefillings';
 
 const CakeOrderForm = () => {
-  // -- Use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
-  // const [isChecked, setIsChecked] = useState(false);
+  const { data: userData } = useQuery( QUERY_ME );
+  const user = userData?.me
+  // const loggedIn = Auth.loggedIn(); // is the user logged-in?
+  console.log("ssssssssssssssssssssssss");
+  console.log(user);
+  console.log("ssssssssssssssssssssssss");
+  // const [addCake, { error }] = useMutation(ADD_CAKE);
+  
+  const [addCake, { error }] = useMutation(ADD_CAKE, {
+    update(cache, { data: { addCake } }) {
+  
+        // could potentially not exist yet, so wrap in a try/catch
+      try {
+        // update me array's cache the comments given by this particular user, same comments set to which ADD_COMMENT will add
+        const { me } = cache.readQuery({ query: QUERY_ME });
+        cache.writeQuery({
+          query: QUERY_ME,
+          data: { me: { ...me, cakes: [...me.cakes, addCake] } },
+        });
+      } catch (e) {
+        console.warn("First comment insertion by user!")
+      }
+  
+    }
+  });
+
   let navigate = useNavigate();
   const [checkedState, setCheckedState] = useState(
     new Array(primaryflowers.length).fill(false)
@@ -206,7 +228,7 @@ const CakeOrderForm = () => {
     setFillingWishListArr(arrSelectedFillings);
 };
 
-const [addCake, { error }] = useMutation(ADD_CAKE);
+// const [addCake, { error }] = useMutation(ADD_CAKE);
 // ``````````````````````````````````````````````````
 // objective2: get the list of selected cake fillings  
 
@@ -387,7 +409,7 @@ const [addCake, { error }] = useMutation(ADD_CAKE);
                 Create this cake!
             </button>
             <div className="col-9 col-md-9">
-              {error && <div>Something went wrong...</div>};
+              {error && <div className='text-error'>Something went wrong...</div>};
             </div>
           </form>
           <div className="flex-row justify-space-between-md" style={{'paddingBottom' : 30 }} >

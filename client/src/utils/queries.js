@@ -166,6 +166,10 @@ export const QUERY_ME_BASIC = gql`
         shape
         primaryFlowers
         specialNote
+        secondaryFlowers
+        extraPrimary
+        extraSecondary
+        extraThickness
         username
         fillings
         frostings

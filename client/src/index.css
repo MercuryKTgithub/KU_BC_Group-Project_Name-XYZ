@@ -218,24 +218,24 @@ nav a:hover {
 
 .card-header {
   color: var(--secondary);
-  margin: 0;
+  margin: 5;
   background-color: var(--dark);
-  padding: 0.625rem;
+  padding: 0.35rem 0.35rem 0.35rem 0.55rem;
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
 .card-body {
-  padding: 2.5%;
+  padding: 0.5% 1.0% 0.5% 1.0% ;
   font-size: 1.3rem;
 }
 
 .card-body p {
-  padding: 2.5%;
+  padding: 0.5% 1.5% 0.5% 1.5%;
   font-size: 1.4rem !important;
 }
 
 .card-body span {
-  padding: 1.5% 0;
+  padding: 1.0% 0.5%;
   font-size: 1.2rem !important;
   font-family: var(--casual-technical-font);
 }

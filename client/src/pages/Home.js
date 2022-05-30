@@ -19,7 +19,7 @@ const Home = () => {
           </div>
         )} */}
         <div className="col-12 mb-3">
-             <h4> Welcome to Florally Enchanting Cake Website</h4>
+             <h3> Welcome to Florally Enchanting Cake Website</h3>
         </div>
         
         <div className={`col-12 col-lg-8 mb-3 ${loggedIn && 'col-lg-8'}`}>
