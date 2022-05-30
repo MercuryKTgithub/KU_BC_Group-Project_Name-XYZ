@@ -38,11 +38,13 @@ const Home = () => {
         <br></br>
         <br></br>
         <div className={`col-12 col-lg-9 mb-3 ${loggedIn && 'col-lg-9'}`}>
-          <h4> </h4>
-          <p></p>
+          <h4>Gallery </h4>
+          <p>Buttercreme user ordered wedding cake!</p>
           <img
             src={photo}
-            alt="example"
+            width={500}
+            height={400}
+            alt="User ordered wedding cake example"
           />
         
         </div>
