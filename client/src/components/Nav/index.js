@@ -2,15 +2,21 @@ import React, { useState } from 'react';
 import { capitalizeFirstLetter } from '../../utils/helpers';
 
 
+
+
 function Nav() {
 
 const [categories] = useState([
     {
-        name: "wedding",
+        name: "Order",
         description:
         "Photos of customer order wedding cakes",
     },
-    { name: "birthday",
+    { name: "Gallery",
+      description: 
+      "Photos of customer order birthday cakes",
+    },
+    { name: "About",
       description: 
       "Photos of customer order birthday cakes",
     },

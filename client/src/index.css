@@ -19,10 +19,10 @@ main {
 }
 :root {
   --primary: #8c54ff;
-  --secondary: #F3A847;
+  --secondary: #ffe7e7;
   --tertiary: #B12704;
-  --light: #fafafa;
-  --dark: #000000;
+  --light: #ffe2e2;
+  --dark: #ffffff;
   --darker: #111111;
   --error: rgb(228, 46, 1);
   --spacing-one: calc(1rem * 0.5);
@@ -188,6 +188,7 @@ textarea {
 .flex-row {
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .space-between {
@@ -256,7 +257,7 @@ textarea {
 }
 
 .modalBackdrop {
-	background: rgba(0, 0, 0, .65);
+	background: rgba(255, 218, 218, 0.65);
 	bottom: 0;
 	left: 0;
 	overflow: auto;
@@ -305,4 +306,16 @@ a {
 
 .navActive {
   color: var(--secondary);
+}
+
+.navbar {
+  background-color: #ffffff;
+  padding-top: 2px;
+  text-align: right;
+  justify-content: right;
+}
+
+.site-title {
+  font-size: xx-large;
+  margin-bottom: 20px;
 }
