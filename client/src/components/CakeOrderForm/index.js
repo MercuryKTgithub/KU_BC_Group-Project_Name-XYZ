@@ -135,21 +135,17 @@ const CakeOrderForm = () => {
     );
   };
 ;
-  const [total, setTotal] = useState(0);
+  const [total, setTotal] = useState(0); // may need computing later on
   const [secondaryTotal, setSecondaryTotal] = useState(0);
   const [fillingsTotal, setFillingsTotal] = useState(0);
 // ``````````````````````````````````````````````````````````````````````````````````````
-// objective: get the list of selected flowers via checkboxes indirectly thru (1) and (2)
+// objective: get the list of selected flowers via checkboxes indirectly 
 
 // ``````````````````````````````````````````````````````````````````````````````````````
-  const [flowerWishlist, setFlowerWishlist] = useState(""); //(1)
-  const [secondaryFlowerWishlist, setSecondaryFlowerWishlist] = useState(""); //(2)
 
-  const [primaryFlowers, setFlowerWishlistArr] = useState([]); //(3)
-  const [secondaryFlowers, setSecondaryFlowerWishlistArr] = useState([]); //(4)  
-
-  const [fillingsWishlist, setfillingsWishlist] = useState(""); //(5)
-  const [fillings, setFillingWishListArr] = useState([]); //(6)
+  const [primaryFlowers, setFlowerWishlistArr] = useState([]);  
+  const [secondaryFlowers, setSecondaryFlowerWishlistArr] = useState([]);  
+  const [fillings, setFillingWishListArr] = useState([]);  
 
 // ``````````````````````````````````````````````````
   const handlePrimaryOnChange = (position) => {
@@ -158,12 +154,10 @@ const CakeOrderForm = () => {
       );
       
       setCheckedState(updatedCheckedState);
-      let totalSelectedPrimaryFlowers = '';
       let arrPrimaryFlowers = []
       const totalPrice = updatedCheckedState.reduce(
         (sum, currentState, index) => {
           if (currentState === true) {
-            totalSelectedPrimaryFlowers += primaryflowers[index].name + "+";
             arrPrimaryFlowers.push(primaryflowers[index].name);
             return sum + primaryflowers[index].price;
           }
@@ -172,7 +166,6 @@ const CakeOrderForm = () => {
         0
       );
       setTotal(totalPrice);
-      setFlowerWishlist(totalSelectedPrimaryFlowers); // 
       setFlowerWishlistArr(arrPrimaryFlowers);
   };
 
@@ -182,12 +175,10 @@ const CakeOrderForm = () => {
     );
     
     setCheckedStateSecondary(updatedCheckedStateSecondary);
-    let totalSelectedSecondaryFlowers = '';
     let arrSelectedSecondaryFlowers = [];
     const totalPrice = updatedCheckedStateSecondary.reduce(
       (sum, currentState, index) => {
         if (currentState === true) {
-          totalSelectedSecondaryFlowers += secondaryflowers[index].name + "+";
           arrSelectedSecondaryFlowers.push(secondaryflowers[index].name);
           return sum + secondaryflowers[index].price;
         }
@@ -195,11 +186,9 @@ const CakeOrderForm = () => {
       },
       0
     );
-    // console.log("mmmmmmmmmmmmmmmmmmmmm")
     // console.log(updatedCheckedStateSecondary); // list of true, false
 
     setSecondaryTotal(totalPrice);
-    setSecondaryFlowerWishlist(totalSelectedSecondaryFlowers); 
     setSecondaryFlowerWishlistArr(arrSelectedSecondaryFlowers);
      
   };
@@ -210,12 +199,10 @@ const CakeOrderForm = () => {
     );
     
     setCheckedStateFillings(updateCheckedStateFillings);
-    let totalSelectedFillings = '';
     let arrSelectedFillings = [];
     const totalPrice = updateCheckedStateFillings.reduce(
       (sum, currentState, index) => {
         if (currentState === true) {
-          totalSelectedFillings += cakefillings[index].name + "+";
           arrSelectedFillings.push(cakefillings[index].name);
           return sum + cakefillings[index].price;
         }
@@ -224,7 +211,6 @@ const CakeOrderForm = () => {
       0
     );
     setFillingsTotal(totalPrice);
-    setfillingsWishlist(totalSelectedFillings); // 
     setFillingWishListArr(arrSelectedFillings);
 };
 
@@ -283,7 +269,6 @@ const CakeOrderForm = () => {
                       </div>
                     );
                   })}                 
-                  {/* <div>{flowerWishlist}</div> */}
                   {/* <div>{primaryFlowers}</div> */}
             </div>
 
@@ -304,7 +289,7 @@ const CakeOrderForm = () => {
                     </div>
                   );
                 })}               
-                {/* <div>{secondaryFlowerWishlist}</div> */}
+                 
                 {/* <div>{secondaryFlowers}</div> */}
             
             </div>
@@ -383,7 +368,6 @@ const CakeOrderForm = () => {
                     </div>
                   );
                 })}                 
-                {/* <div>{fillingsWishlist}</div> */}
                 {/* <div>{fillings}</div> */}
             </div>
             <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
