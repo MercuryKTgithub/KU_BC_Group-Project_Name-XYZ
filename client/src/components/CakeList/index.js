@@ -19,16 +19,15 @@ const ReactionList = ({ cakes }) => {
                   <span className="text-light">Name of Cake  &raquo; {cake.name} | Theme Color Code  &raquo; {cake.themeColorCode} | <Link to={`/cakes/${cake._id}`} className="text-error"> Select for Quoting</Link></span>
                 </div>
                 <div className="cake-card-body">
-                   <p className="pill mb-1" > Primary Flowers &raquo;  {cake.primaryFlowers.join(' ')} </p>
-                   <p className="pill mb-1" > Secondary Flowers &raquo;  {cake.secondaryFlowers} </p>
+                   <p className="pill mb-1" > Primary Flowers &raquo;  {cake.primaryFlowers.join(', ')} </p>
+                   <p className="pill mb-1" > Secondary Flowers &raquo;  {cake.secondaryFlowers.join(', ')} </p>
                    <p className="pill mb-1"> Select a cake's shape &raquo;  {cake.shape} </p>
                    <p className="pill mb-1"> Choice of Frosting &raquo; {cake.frostings} </p>
-                   <p className="pill mb-3" > Select fillings for your cake &raquo;  {cake.fillings}, Chocolate Ganache, Chocolate Mouse, Kiwi, Pinapple, Pinapple Cream, Rasberry, Rasberry Mouse,  Strowberry</p>
+                   <p className="pill mb-3" > Select fillings for your cake &raquo;  {cake.fillings.join(', ')}</p>
                    <p className="pill mb-1"> Number of Extra Primary Flowers &raquo;  {cake.extraPrimary} </p>
                    <p className="pill mb-1"> Number of Extra Secondary Flowers &raquo;  {cake.extraPrimary} </p>
                    <p className="pill mb-1"> Additional sectional thickness &raquo;  {cake.extraThickness} in.</p>
-                  <div key={cake._id} style={{ wordBreak: 'break-all' }} >
-                  </div>
+                   {/* <div key={cake._id} style={{ wordBreak: 'break-all' }} ></div> */}
                 </div>
               </div>
               <div className="mb-3">
