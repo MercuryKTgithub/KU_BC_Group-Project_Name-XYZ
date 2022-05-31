@@ -1,26 +1,32 @@
 {
-  "name": "mern-server",
+  "name": "ku_bc_group_project_fec_designer_cake_app",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Online Designer Cake App",
   "scripts": {
-    "start": "node server.js",
-    "watch": "nodemon",
-    "seed": "node seeders/seeds.js"
+    "start": "node server/server.js",
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "seed": "cd server && npm run seed",
+    "build": "cd client && npm run build"
   },
-  "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://MercuryKTgithub@github.com/MercuryKTgithub/KU_BC_Group_Project_FEC_Designer_Cake_App.git"
+  },
+  "keywords": [
+    "React",
+    "MongoDB",
+    "Apollo",
+    "GraphQL",
+    "MERN"
+  ],
+  "author": "KUBC Group Project III",
   "license": "ISC",
-  "dependencies": {
-    "apollo-server-express": "^3.7.0",
-    "bcrypt": "^4.0.1",
-    "express": "^4.18.1",
-    "faker": "^4.1.0",
-    "graphql": "^16.5.0",
-    "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.13.14"
+  "bugs": {
+    "url": "https://github.com/MercuryKTgithub/KU_BC_Group_Project_FEC_Designer_Cake_App/issues"
   },
+  "homepage": "https://github.com/MercuryKTgithub/KU_BC_Group_Project_FEC_Designer_Cake_App#readme",
   "devDependencies": {
-    "nodemon": "^2.0.3"
+    "concurrently": "^7.2.1"
   }
 }
