@@ -20,7 +20,7 @@ const Home = () => {
           </div>
         )} */}
         <div className="col-12 mb-3">
-             <h4> Welcome to Florally Enchanting Cake Website</h4>
+             <h3> Welcome to Florally Enchanting Cake Website</h3>
         </div>
         
         <div className={`col-12 col-lg-8 mb-3 ${loggedIn && 'col-lg-8'}`}>
@@ -28,7 +28,7 @@ const Home = () => {
         </div>
 
         {loggedIn && user ? (<div className="col-12 col-lg-3 mb-3"><h5>Welcome, {user.username}!</h5></div> ) : 
-        <div className="col-12 col-lg-3 mb-3">Please register to place orders</div>  }
+        <div className="col-12 col-lg-3 mb-3"> <h5>June 1st, 2021</h5>Please register to place orders</div>  }
       
         {user ? (<div className="col-12 col-lg-7 mb-7">
           | <Link to={`/cakediscussion`}><span> View your custom cake dashboard </span></Link>| </div> ) : null}

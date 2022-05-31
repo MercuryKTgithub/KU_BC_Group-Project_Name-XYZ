@@ -13,6 +13,21 @@ export const QUERY_USER = gql`
         createdAt
         reactionCount
       }
+      cakes {
+        _id
+        name
+        themeColorCode
+        shape
+        primaryFlowers
+        specialNote
+        secondaryFlowers
+        extraPrimary
+        extraSecondary
+        extraThickness
+        username
+        fillings
+        frostings
+      }
     }
   }
 `;
@@ -53,6 +68,48 @@ export const QUERY_COMMENT = gql`
   }  
 `;
 
+export const QUERY_CAKE = gql`
+  query Cake($id: ID!) {
+    cake(_id: $id) {
+      _id
+      name
+      themeColorCode
+      shape
+      primaryFlowers
+      specialNote
+      secondaryFlowers
+      extraPrimary
+      extraSecondary
+      extraThickness
+      createdAt 
+      username
+      fillings
+      frostings
+    }
+  } 
+`;
+
+export const QUERY_CAKES = gql`
+  query Cakes($username: String) {
+    cakes(username: $username) {
+      _id
+      name
+      themeColorCode
+      shape
+      primaryFlowers
+      specialNote
+      secondaryFlowers
+      extraPrimary
+      extraSecondary
+      extraThickness
+      createdAt
+      username
+      fillings
+      frostings
+    }
+  } 
+`;
+
 
 // We aren't passing any variables to it
 export const QUERY_ME = gql`
@@ -73,7 +130,23 @@ export const QUERY_ME = gql`
           createdAt
           reactionBody
           username
-        }
+        }       
+      }
+      cakes {
+        _id
+        name
+        themeColorCode
+        shape
+        primaryFlowers
+        specialNote
+        secondaryFlowers
+        extraPrimary
+        extraSecondary
+        extraThickness
+        username
+        createdAt
+        fillings
+        frostings
       }
     }
   }
@@ -87,6 +160,22 @@ export const QUERY_ME_BASIC = gql`
       username
       email
       commentCount
+      cakes {
+        _id
+        name
+        themeColorCode
+        shape
+        primaryFlowers
+        specialNote
+        secondaryFlowers
+        extraPrimary
+        extraSecondary
+        extraThickness
+        username
+        createdAt
+        fillings
+        frostings
+      }
     }
   }
 `;

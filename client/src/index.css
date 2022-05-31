@@ -5,9 +5,12 @@
   --quatrinary: rgb(233, 223, 223);/*rgb(240, 186, 234);*/
   --light: rgba(254, 240, 238, 0.914);
   --dark: rgba(98, 130, 130, 0.989); /*rgb(184, 100, 152);*/ /*#689292;*/
-  --mediuml: rgba(125, 150, 150, 0.988); 
+  --medium: rgba(125, 150, 150, 0.988); 
+  --light-teal: rgba(179, 210, 200, 0.859);
   --error: rgba(177, 55, 126, 0.654);
+  --pink-mature: rgba(131, 57, 100, 0.754);
   --emphasis-catchy: rgba(182, 65, 136, 0.624);
+  --pink-light: rgba(232, 125, 176, 0.134);
   --input-focus: rgb(115, 129, 131);
   --border-radius: 0.3rem;
   --spacing-one: calc(1rem * 0.25);
@@ -17,6 +20,8 @@
   --spacing-five: calc(1rem * 3);
   --designer-font-primary: "Playball";
   --casual-technical-font: "Yaldevi";
+  --narrow-text-cake-font: "Marmelad"; 
+   
 }
 
 * {
@@ -57,6 +62,19 @@ main a:hover{
   color: var(--emphasis-catchy);
   text-decoration: none;
   font-weight: 500;
+}
+
+main .card a {
+  color: var(--emphasis-catchy);
+  text-shadow: 1px 1px 1px var(--light);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+main .card a:hover{
+  color: var(--light-teal);
+  text-shadow: 1px 1px   var(--secondary);
+  text-decoration: none;
 }
 
 textarea:focus, input:focus{
@@ -197,7 +215,7 @@ nav a:hover {
  
 .pill:hover {
   color: var(--secondary);
-  background-color: var(--mediuml);
+  background-color: var(--medium);
 }
 
 .btn-inline {
@@ -205,6 +223,69 @@ nav a:hover {
 }
 
 /* CARDS */
+.cake-card {
+  margin: 0 5px 5px 0;
+  border-top: 1px solid var(--pink-mature);
+  border-bottom: 4px solid var(--pink-mature);
+  border-right: 1px solid var(--pink-mature);
+  border-left: 1px solid var(--pink-mature);
+  border-radius: var(--border-radius);
+  background-color: var(--pink-light);
+  color: var(--dark);
+}
+
+.cake-card-header {
+  color: var(--secondary);
+  margin: 1px;
+  background-color: var(--pink-mature);
+  padding: 0.35rem 0.35rem 0.35rem 0.55rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  /* font-family: var(--designer-font-primary); */
+}
+
+.cake-card-body {
+  padding: 0.2% 1.0% 0.5% 1.0% ;
+  font-size: 1.0rem;
+  font-family: var(--narrow-text-cake-font) !important;
+  margin: 8px 2px;
+}
+
+.cake-card a{
+  color: var(--light-teal);
+}
+
+.cake-card a:hover{
+  color: var(--light);
+}
+
+.cake-card .pill{
+  font-size: 1.0rem;
+  text-decoration: none;
+  font-style: italic;
+  padding: 0.2rem 0.7rem;
+  
+  margin: 8px 2px;
+  border-radius: var(--border-radius);
+  border:  1px solid var(--primary) !important;
+  color: var(--dark);
+  outline: none;
+  background-color: var(--secondary);
+  transition: all 0.5s;  
+  min-width: 18% !important;
+}
+.cake-card p{
+  padding: 3px 0;
+}
+
+.cake-card span{
+  min-width: 18% !important;
+}
+
+.cake-card .pill:hover {
+  color: var(--secondary);
+  background-color: var(--primary);
+}
+
 .card {
   margin: 0 15px 20px 0;
   border-top: 1px solid var(--dark);
@@ -217,28 +298,40 @@ nav a:hover {
 }
 
 .card-header {
+  /* color: var(--secondary);
+  margin: 5;
+  background-color: var(--dark);
+  padding: 0.35rem 0.35rem 0.35rem 0.55rem;
+  border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+  font-family: var(--designer-font-primary); */
   color: var(--secondary);
   margin: 0;
   background-color: var(--dark);
-  padding: 0.625rem;
+  padding: 0.35rem 0.35rem 0.50rem 0.55rem;
+  /* padding: 0.625rem; */
   border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
 }
 
 .card-body {
-  padding: 2.5%;
+  padding: 1.8% 2.5% 1.5% 2.5% ;
+  /* font-size: 1.3rem; */
+  /* padding: 2.5%; */
   font-size: 1.3rem;
 }
 
 .card-body p {
-  padding: 2.5%;
+  padding: 0.5% 1.5% 0.5% 1.5%;
+  /* padding: 2.5%; */
   font-size: 1.4rem !important;
 }
 
 .card-body span {
+  /* padding: 1.0% 0.5%; */
   padding: 1.5% 0;
   font-size: 1.2rem !important;
   font-family: var(--casual-technical-font);
 }
+
 
 /* FORM */
 .form-label,

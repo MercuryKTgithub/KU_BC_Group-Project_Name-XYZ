@@ -2,7 +2,7 @@ import React from 'react';
 import { useQuery } from '@apollo/client'; // useQuery hook that expect a parameter passed in
 import Auth from '../../utils/auth';
 // import { QUERY_ME_BASIC } from '../utils/queries';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
 import photo from '../../assets/small/wk-1.jpg';
 
@@ -15,6 +15,10 @@ const Home = () => {
   const user = userData?.me
   const loggedIn = Auth.loggedIn(); // is the user logged-in?
   console.log(user);
+
+  const navigate = useNavigate();
+ 
+
   return (
     <main>
       <div className='flex-row justify-space-between'>

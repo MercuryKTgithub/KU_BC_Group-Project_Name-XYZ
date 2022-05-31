@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Comment } = require('../models');
+const { User, Comment, Cake } = require('../models');
 const { signToken } = require('../utils/auth');
 
 const resolvers = {
@@ -8,7 +8,8 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('comments');
+          .populate('comments')
+          .populate('cakes');
          
         return userData;
       }
@@ -19,14 +20,16 @@ const resolvers = {
     users: async () => {
       return User.find()
         .select('-__v -password')
-        .populate('comments');
-       
+        .populate('comments')
+        .populate('cakes');
+        
     },
 
     user: async (parent, { username }) => {
       return User.findOne({ username })
         .select('-__v -password')
-        .populate('comments');
+        .populate('comments')
+        .populate('cakes');
     },
 
     comments: async (parent, { username }) => {
@@ -36,15 +39,49 @@ const resolvers = {
 
     comment: async (parent, { _id }) => {
       return Comment.findOne({ _id });
+    },
+
+    cake: async (parent, { _id }) => {
+      return Cake.findOne({ _id });
+    },
+
+    cakes: async (parent, {username}) => {
+      const params = username ? { username } : {};
+      return Cake.find(params).sort({ createdAt: -1 });
     }
+
   },
 
   Mutation: {
+    // // addCake: async (parent, args) => {
+    // //   const cake = await Cake.create(args);
+    // //   return cake;
+    // // },
+
+    addCake: async (parent, args, context) => {
+      if(context.user){
+        const cake = await Cake.create({...args, username: context.user.username });
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { cakes: cake._id } },
+          { new: true }
+        );
+        return cake;
+      }
+    },
+
     addUser: async (parent, args) => {
       const user = await User.create(args);
       const token = signToken(user);
 
       return { token, user };
+    },
+
+    updateUser: async (parent, args, context) => {
+      if (context.user) {
+        return await User.findByIdAndUpdate(context.user._id, args, { new: true });
+      }
+      throw new AuthenticationError('Not logged in');
     },
 
     login: async (parent, { email, password }) => {
@@ -93,6 +130,8 @@ const resolvers = {
 
       throw new AuthenticationError('You need to be logged in!');
     },
+
+   
      
   }
 };

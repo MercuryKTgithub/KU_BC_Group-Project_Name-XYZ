@@ -2,8 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // will receive two props
-const CommentList = ({ comments, title }) => {
-
+// const CommentList = ({ comments, title }) => {
+  const CommentList = ({ comments }) => {
   // if (!comments.length) {
   //   return <h3>No Comment Yet</h3>;
   // }
@@ -11,7 +11,7 @@ const CommentList = ({ comments, title }) => {
   //  key prop (in div) serves with mapped data in React: helps React internally track which data needs to be re-rendered if something changes.
   return (
     <div>
-      <h4>{title}</h4>
+      {/* <h4>{title}</h4> */}
       {comments &&
         comments.map(comment => (
           <div key={comment._id} className="card mb-3">
