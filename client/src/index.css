@@ -1436,3 +1436,9 @@ input[type='checkbox']:checked + label:after {
     align-items: center;
   }
 }
+input[type="checkbox"] { /* change "blue" browser chrome to yellow */
+  accent-color: var(--emphasis-catchy);
+}
+input[type="radio"] { /* change "blue" browser chrome to yellow */
+  accent-color: var(--emphasis-catchy);
+}
