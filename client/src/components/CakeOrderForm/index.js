@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
 import { ADD_CAKE } from '../../utils/mutations';
 // import Auth from '../../utils/auth';
-import { validateColorCodeLength, validateColorCodeField } from '../../utils/helpers'
+import { validateColorCodeLength, validateColorCodeField, validateRequiredField } from '../../utils/helpers'
 import { primaryflowers } from '../../utils/primaryflowers';
 import { secondaryflowers } from '../../utils/secondaryflowers';
 import { cakefillings } from '../../utils/cakefillings';
@@ -119,12 +119,13 @@ const CakeOrderForm = () => {
     setThemeColorCodeText(event.target.value)
 
     const isNotValid = validateColorCodeLength(event.target.value);
-      console.log(isNotValid);
+       
       if (isNotValid) {
         setErrorMessage('Theme Color Code cannot have more than 8 characters!');
-      } else if (!validateColorCodeField(event.target.value))
+      }     
+      else if (!validateColorCodeField(event.target.value))
       {
-        setErrorMessage('It appears you have entered special characters. Numericalpha only please.');
+        setErrorMessage('It appears you have entered a special character or no text at all. Numericalpha only please.');
       }
       else{
         setErrorMessage('');
@@ -135,6 +136,13 @@ const CakeOrderForm = () => {
   // -- required field : name
   const handleCakeNameTextChange = event => {
     setCakeNameText(event.target.value);
+    const valid = validateRequiredField(event.target.value);
+    if (!valid) {
+      setErrorMessage('Please give your cake creation a name. It is required');
+    }
+    else{
+      setErrorMessage('');
+    }
   }
 
   console.log(name);
@@ -388,7 +396,7 @@ const CakeOrderForm = () => {
                 <h4>Enter theme color code [closest to your liking]</h4>
                   <input 
                     type="text"
-                    value={themeColorCode} 
+                    value={themeColorCode} onBlur={handleThemeColorCodeTextChange}
                     onChange={handleThemeColorCodeTextChange}
                     className="form-input text-center" style={{'width' : '38%', 'fontSize': 26 }} />
               
