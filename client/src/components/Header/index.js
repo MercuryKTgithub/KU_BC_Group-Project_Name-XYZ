@@ -23,11 +23,12 @@ const Header = () => {
         {Auth.loggedIn() ? (
           <React.Fragment>
           <Link to="/">Home</Link>
-          <Link to="/catalog">Catalogs</Link>
+          <Link to="/catalogs">Catalogs</Link>
           <Link to="/pricing">Pricing</Link>
           
           <Link to="/cakeorderform">Order</Link>
-          <a href="/" onClick={logout}>Logout</a>
+          {/* <a href="/goodbye" onClick={logout}>Logout</a> */}
+          <Link to="/goodbye" onClick={logout}>Logout</Link>
           </React.Fragment>
           ) : (
           // if no
@@ -35,7 +36,7 @@ const Header = () => {
             
           
             <Link to="/">Home</Link>
-            <Link to="/catalog">Catalogs</Link>
+            <Link to="/catalogs">Catalogs</Link>
             <Link to="/pricing">Pricing</Link>
             <Link to="/signup">Register</Link>
             <Link to="/login">Login</Link>

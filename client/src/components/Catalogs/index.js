@@ -4,12 +4,15 @@ import Gallery from '../Gallery'
  
 
 // Apply useState on an array
-function Catalog() {
+function Catalogs() {
   const [categories] = useState([
     {
       name: 'birthday', description: 'Photos of our most recent cake design models',
     },
     { name: 'wedding', description: 'Featuring some trending cake-designs but still reflect our traditional buttercream based floral aesthetics' },
+
+    { name: 'theme-code', description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit.'}
+
      
   ]);
 
@@ -33,4 +36,4 @@ function Catalog() {
   );
 }
 
-export default Catalog;
+export default Catalogs;

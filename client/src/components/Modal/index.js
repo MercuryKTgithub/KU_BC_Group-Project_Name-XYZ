@@ -3,24 +3,10 @@ import React, { useState} from 'react';
 const Modal = ({ onClose, currentPhoto }) => {
   const { name, description, category, index } = currentPhoto; // destructured
 //   const [value, copy] = useCopyToClipboard()
-  const [buttonText, setButtonText] = useState('');
+  // const [buttonText, setButtonText] = useState('');
   let target = '';
-// 
-//   const inputHandler = event => {
-//     setText(event.target.value);
-//     alert(event.target.value);
-//   }
-// 
-//   const copyMe = async () => {
-//     await navigator.clipboard.writeText(text);
-//     alert('Text copied');
-//   }
     const handlePreClick = (event) => {
-      // alert(event.target.innerText);    // Click Me
-      // alert(event.target.tagName);      // BUTTON
-      // setButtonText(event.target.value.innerText);
       target = event.target.innerText;
-      // alert(target);
       console.log(target);
     }
 
@@ -42,13 +28,6 @@ const Modal = ({ onClose, currentPhoto }) => {
             Close Photo
           </button>       
         </div>
-
-        {/* <p onMouseDown={handlePreClick} onClick={() => navigator.clipboard.writeText(target.toString())} 
-            style={{ 'fontFamily': 'Fahkwang', fontSize : 18, fontWeight: 400, 'margin': 0,'color': 'var(--light)'}} > Theme Code: {description}</p>
-        */}
-        {/* <button type="button" onClick={onClose} className="btn m-2">
-          Close Photo
-        </button> */}
       
       </div>
     </div>

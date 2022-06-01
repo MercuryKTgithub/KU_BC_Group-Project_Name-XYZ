@@ -8,14 +8,16 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound'; 
+import Goodbye from './pages/Goodbye'
 
 import CakeDiscussion from './components/CakeDiscussion';  
 import CommentForm from './components/CommentForm'; 
 import SingleCommentFocus from './components/SingleCommentFocus';
 import CakeOrderForm from './components/CakeOrderForm';
 import SingleCakeFocus from './components/SingleCakeFocus';
-import Catalog from './components/Catalog'
-import SinglePhoto from './components/SinglePhoto';
+import Pricing from './components/Pricing';
+import Catalogs from './components/Catalogs' ;
+
 
 import { setContext } from '@apollo/client/link/context';
 
@@ -63,9 +65,13 @@ function App() {
                 path="/login" 
                 element={<Login />} 
               />
+              <Route  
+                path="/logout" 
+                element={<Goodbye />} 
+              />
               <Route 
-                path="/catalog"
-                element={<Catalog />}
+                path="/catalogs"
+                element={<Catalogs />}
               /> 
               <Route 
                 path="/commentform"
@@ -87,10 +93,14 @@ function App() {
                 path="/cakeorderform" 
                 element={<CakeOrderForm />}
                />
-              <Route  
+              {/* <Route  
                 path="/singlephoto" 
                 element={<SinglePhoto />} 
-              />                     
+              />        */}
+              <Route  
+                path="/pricing" 
+                element={<Pricing />} 
+              />                       
               <Route 
                 path="*" 
                 element={<NotFound />} 

@@ -65,7 +65,60 @@ const PhotoList = ({ category }) => {
       name: 'Wedding Cake Model - IV',
       category: 'wedding',
       description: 'FEC44WE'
+    },
+    // theme ends
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-98'
+    },
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-96'
+    },
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-94'
+    },
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-92'
+    },
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-91'
+    },
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-33'
+    },
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-31'
+    },
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-32'
+    },
+    {
+      name: 'Please click on provide  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-33'
+    },
+    {
+      name: 'Please click on provided  button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-42'
     }
+
+
   ]);
 
   const currentPhotos = photos.filter(photo => photo.category === category);
