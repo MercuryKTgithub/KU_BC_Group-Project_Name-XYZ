@@ -4,7 +4,7 @@ import Auth from '../utils/auth';
 // import { QUERY_ME_BASIC } from '../utils/queries';
 import { Link } from 'react-router-dom';
 import { QUERY_ME } from '../utils/queries';
-import PhotoList from '../components/PhotoList';
+// import PhotoList from '../components/PhotoList';
 const Home = () => {
   // -- Use object destructuring to extract `data` from the `useQuery` Hook's response and rename it `userData` to be more descriptive
   const { data: userData } = useQuery( QUERY_ME );
@@ -38,6 +38,10 @@ const Home = () => {
         {user ? (<div className="col-12 col-lg-7 mb-7">
           | <Link to={`/cakeorderform`}><span> Order Cake [Kimberly's Test] </span></Link>| </div> ) : null}
         
+        {user ? (<div className="col-12 col-lg-7 mb-7">
+        | <Link to={`/catalog`}><span> [ Catalog | Gallery Test ] </span></Link>| </div> ) : null}
+        
+
         <span className="col-12 col-lg-7 mb-7 form-input">
         <Link to={`/singlephoto`}><span> Gallery </span></Link>
         </span>

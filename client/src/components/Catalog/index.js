@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import NavSub from './components/NavSub';
-import Gallery from './components/Gallery';
+import NavSub from '../NavSub';
+import Gallery from '../Gallery'
  
 
 // Apply useState on an array
 function Catalog() {
   const [categories] = useState([
     {
-      name: 'Birthday Cakes',
-      description: 'Photos of our most recent cake design models',
+      name: 'birthday', description: 'Photos of our most recent cake design models',
     },
-    { name: 'Wedding Cakes', description: 'Some of the design strength but still reflect our traditional buttercream based floral aesthetics' },
+    { name: 'wedding', description: 'Some of the design strength but still reflect our traditional buttercream based floral aesthetics' },
      
   ]);
 

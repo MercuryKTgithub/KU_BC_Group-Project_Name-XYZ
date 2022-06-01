@@ -8,15 +8,13 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound'; 
-import CakeDiscussion from './components/CakeDiscussion'; 
 
-import CakeReview from './components/CakeReview'; 
+import CakeDiscussion from './components/CakeDiscussion';  
 import CommentForm from './components/CommentForm'; 
 import SingleCommentFocus from './components/SingleCommentFocus';
 import CakeOrderForm from './components/CakeOrderForm';
 import SingleCakeFocus from './components/SingleCakeFocus';
-
-// import Profile from './pages/Profile';
+import Catalog from './components/Catalog'
 import SinglePhoto from './components/SinglePhoto';
 
 import { setContext } from '@apollo/client/link/context';
@@ -66,8 +64,8 @@ function App() {
                 element={<Login />} 
               />
               <Route 
-                path="/cakereview"
-                element={<CakeReview />}
+                path="/catalog"
+                element={<Catalog />}
               /> 
               <Route 
                 path="/commentform"

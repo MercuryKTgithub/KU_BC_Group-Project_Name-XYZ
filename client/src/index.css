@@ -9,7 +9,7 @@
   --light-teal: rgba(179, 210, 200, 0.859);
   --error: rgba(177, 55, 126, 0.654);
   --pink-mature: rgba(131, 57, 100, 0.754);
-  --emphasis-catchy: rgba(182, 65, 136, 0.624);
+  --emphasis-catchy: rgba(163, 60, 131, 0.704);
   --pink-light: rgba(232, 125, 176, 0.134);
   --input-focus: rgb(115, 129, 131);
   --border-radius: 0.3rem;
@@ -167,17 +167,20 @@ a:visited {
 nav {
   width: 100%;
   justify-content: center;
+  cursor: pointer;
 }
 
 nav a {
   padding: 6px 10px;
   margin: 0 15px;
   transition: all 0.2s;
+  
 }
 
 nav a:hover {
   color: var(--secondary);
   background-color: var(--dark);
+  
 }
 
 .page-title {
@@ -1441,4 +1444,42 @@ input[type="checkbox"] { /* change "blue" browser chrome to yellow */
 }
 input[type="radio"] { /* change "blue" browser chrome to yellow */
   accent-color: var(--emphasis-catchy);
+}
+.navActive {
+  color: var(--emphasis-catchy);
+  cursor: auto;
+}
+
+.modalBackdrop {
+	background: rgba(0, 0, 0, .65);
+	bottom: 0;
+	left: 0;
+	overflow: auto;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1;
+}
+
+.modalContainer {
+	background: var(--darker);
+	border-radius: 5px;
+	max-width: 100%;
+	margin: 50px auto;
+	padding: 15px;
+	width: 960px;
+}
+
+.modalTitle {
+	font-size: 18px;
+	font-weight: 600;
+	margin-bottom: 25px;
+}
+
+.embraced{
+  border: 1px solid var(--light);
+}
+
+.border-photo-small{
+  border: 1px solid var(--medium);
 }

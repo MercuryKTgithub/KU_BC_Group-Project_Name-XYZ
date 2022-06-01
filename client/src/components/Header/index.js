@@ -14,26 +14,32 @@ const Header = () => {
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         
           <h1><span style={{'letterSpacing': '4px'}} >FEC</span> Online Designer Cakes </h1>
-          <p style={{ 'fontFamily': 'Fahkwang', fontSize : 22, fontWeight: 400, 'margin': 0,'color': 'var(--error)'}}> Home of the<span style={{ 'fontFamily': 'Playball', fontSize : 24}}> F</span> lorally 
-          <span style={{ 'fontFamily': 'Playball', fontSize : 26}}> E</span>nchanting<span style={{ 'fontFamily': 'Playball', fontSize : 24}}> C</span>akes for Wedding & Birthday Occasions </p>
+          <p style={{ 'fontFamily': 'Fahkwang', fontSize : 22, fontWeight: 400, 'marginBottom': 20 ,'color': 'var(--emphasis-catchy)'}}> Home of the<span style={{ 'fontFamily': 'Playball', fontSize : 24}}> F</span> lorally 
+            <span style={{ 'fontFamily': 'Playball', fontSize : 26}}> E</span>nchanting<span style={{ 'fontFamily': 'Playball', fontSize : 24}}> C</span>akes for Wedding & Birthday Occasions 
+          </p>
         
 
         <nav className="text-center">
         {Auth.loggedIn() ? (
           <React.Fragment>
           <Link to="/">Home</Link>
+          <Link to="/catalog">Catalogs</Link>
           <Link to="/pricing">Pricing</Link>
-          <Link to="/cakeorderform">Orders</Link>
+          
+          <Link to="/cakeorderform">Order</Link>
           <a href="/" onClick={logout}>Logout</a>
           </React.Fragment>
           ) : (
           // if no
           <React.Fragment>
             
-            <Link to="/login">Login</Link>
+          
+            <Link to="/">Home</Link>
+            <Link to="/catalog">Catalogs</Link>
+            <Link to="/pricing">Pricing</Link>
             <Link to="/signup">Register</Link>
-            <Link to="/">Orders</Link>
-            <Link to="/">Pricing</Link>
+            <Link to="/login">Login</Link>
+            
           </React.Fragment>
           )}
       </nav>
