@@ -4,11 +4,25 @@
   Speciality order cakes for Wedding and Birthday occasions that specializes in buttercreme and floral aesthetics.
 
   ## Table of Contents
+  * [Technologies](#technologies)
   * [Installation](#installation)
   * [Usage](#usage)
   * [License](#license)
   * [Contributing](#contributing)
   * [Questions](#questions)
+
+  ## Technologies
+  React
+
+  Node
+
+  MongoDB
+
+  Apollo
+
+  GraphQL
+
+  MERN
   
   ## Installation
   Clone repository and run npm install at root of file to install all dependencies.
