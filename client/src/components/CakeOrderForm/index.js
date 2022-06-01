@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
 import { ADD_CAKE } from '../../utils/mutations';
 // import Auth from '../../utils/auth';
-
+import { validateColorCodeLength, validateColorCodeField } from '../../utils/helpers'
 import { primaryflowers } from '../../utils/primaryflowers';
 import { secondaryflowers } from '../../utils/secondaryflowers';
 import { cakefillings } from '../../utils/cakefillings';
@@ -76,7 +76,7 @@ const CakeOrderForm = () => {
   };
 
   console.log(frostings);
-
+  const [errorMessage, setErrorMessage] = useState(''); 
   const[extraPrimary, setExtraPrimaryText] = useState(0);
   const[extraSecondary, setExtraSecondaryText] = useState(0);
   const[extraThickness, setExtraThicknessText] = useState(0);
@@ -111,10 +111,24 @@ const CakeOrderForm = () => {
   console.log(extraThickness);
 
   const handleThemeColorCodeTextChange = event => {
-    const re = /^[a-zA-Z0-9]{8}$/;
-    if (!event.target.value === '' || !re.test(event.target.value)) {
-        setThemeColorCodeText(event.target.value);
-    }
+    // const re = /^[a-zA-Z0-9]{8}$/;
+    // const re = /^[a-zA-Z0-9]$/;
+    // if (!event.target.value === '' || !re.test(event.target.value)) {
+    //     setThemeColorCodeText(event.target.value);
+    // }
+    setThemeColorCodeText(event.target.value)
+
+    const isNotValid = validateColorCodeLength(event.target.value);
+      console.log(isNotValid);
+      if (isNotValid) {
+        setErrorMessage('Theme Color Code cannot have more than 8 characters!');
+      } else if (!validateColorCodeField(event.target.value))
+      {
+        setErrorMessage('It appears you have entered special characters. Numericalpha only please.');
+      }
+      else{
+        setErrorMessage('');
+      }
   }
   console.log(themeColorCode);
 
@@ -384,7 +398,7 @@ const CakeOrderForm = () => {
                 <h4>Please give your cake a name:</h4>
                   <input 
                     type="text"
-                    value={name} 
+                    value={name} onBlur={handleCakeNameTextChange}
                     onChange={handleCakeNameTextChange}
                     className="form-input text-left" style={{ 'fontSize': 26 }} />
                 
@@ -392,8 +406,9 @@ const CakeOrderForm = () => {
             <button className="btn col-3 col-md-3" type="submit" >
                 Create this cake!
             </button>
-            <div className="col-9 col-md-9">
-              {error && <div className='text-error'>Something went wrong...</div>};
+            <div className="col-9 col-md-9 text-right text-error">
+              {error && <div>Something went wrong...</div>}
+              {errorMessage}
             </div>
           </form>
           <div className="flex-row justify-space-between-md" style={{'paddingBottom' : 30 }} >

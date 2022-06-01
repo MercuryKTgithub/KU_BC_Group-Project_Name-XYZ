@@ -17,6 +17,26 @@ export function validatePasswordLength(input) {
   return (len < 8 )? false : true;
 }
 
+export function validateColorCodeLength(input) {
+  var len = input.toString().length;
+  if( 8 < len ){
+    return false;
+  }else if ( 8 > len ){
+    return false
+  }else{
+    return true;
+  }
+  // return (( 8 < len ) || (len < 8 )) ? false : true;
+}
+
+export function validateColorCodeField(input) {
+  var re = /^([a-zA-Z0-9])+$/;
+  return re.test(String(input));
+}
+
+
+
+
 
 
  
