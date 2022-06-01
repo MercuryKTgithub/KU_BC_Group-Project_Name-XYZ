@@ -95,11 +95,6 @@ const PhotoList = ({ category }) => {
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-33'
-    },
-    {
-      name: 'Please click on provided  button to get the color theme code',
-      category: 'theme-code',
       description: 'CCT-31'
     },
     {
@@ -133,14 +128,14 @@ const PhotoList = ({ category }) => {
       {isModalOpen && (
         <Modal onClose={toggleModal} currentPhoto={currentPhoto} />
       )}
-      <div className="flex-row justify-space-between pb-3">
+      <div className="flex-row justify-space-around pb-3">
         {currentPhotos.map((image, i) => (
           <img  
             src={require(`../../assets/small/${category}/${i}.jpg`)}
             alt={image.name}
             className="img-thumbnail mx-1 mb-4 border-photo-small"
             onClick={() => toggleModal(image, i)}
-            key={image.name}
+            key={image.description}
           />
         ))}
       </div>
