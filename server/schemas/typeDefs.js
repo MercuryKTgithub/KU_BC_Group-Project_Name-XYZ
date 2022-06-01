@@ -64,6 +64,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     addComment(commentText: String!): Comment
     addReaction(commentId: ID!, reactionBody: String!): Comment
+    removeCake(cakeId: String!): User
     addCake(name: String!, themeColorCode: String!
                          , shape: String
                          , primaryFlowers: [String] 
@@ -76,6 +77,7 @@ const typeDefs = gql`
                          , frostings: String
                          ): Cake
     updateUser(specialNote: String): User 
+    
 
   }
 
