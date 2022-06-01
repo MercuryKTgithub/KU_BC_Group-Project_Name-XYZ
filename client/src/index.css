@@ -1451,7 +1451,7 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
 }
 
 .modalBackdrop {
-	background: rgba(0, 0, 0, .65);
+	background: rgba(0, 0, 0, .59);
 	bottom: 0;
 	left: 0;
 	overflow: auto;

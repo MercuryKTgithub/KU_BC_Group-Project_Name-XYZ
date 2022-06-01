@@ -9,7 +9,7 @@ function Catalog() {
     {
       name: 'birthday', description: 'Photos of our most recent cake design models',
     },
-    { name: 'wedding', description: 'Some of the design strength but still reflect our traditional buttercream based floral aesthetics' },
+    { name: 'wedding', description: 'Featuring some trending cake-designs but still reflect our traditional buttercream based floral aesthetics' },
      
   ]);
 
@@ -27,14 +27,7 @@ function Catalog() {
         <div>
           <Gallery currentCategory={currentCategory}></Gallery>
         </div>
-         {/* {!contactSelected ? (
-          <>
-            <Gallery currentCategory={currentCategory}></Gallery>
-            <About></About>
-          </>
-        ) : (
-          <ContactForm></ContactForm>
-        )} */}
+         
       </main>
     </div>
   );
