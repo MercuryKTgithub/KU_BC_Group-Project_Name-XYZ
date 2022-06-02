@@ -70,47 +70,47 @@ const PhotoList = ({ category }) => {
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-98'
+      description: 'CCT-982'
     },
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-96'
+      description: 'CCT-964'
     },
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-94'
+      description: 'CCT-946'
     },
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-92'
+      description: 'CCT-928'
     },
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-91'
+      description: 'CCT-919'
     },
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-31'
+      description: 'CCT-312'
     },
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-32'
+      description: 'CCT-324'
     },
     {
       name: 'Please click on provide  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-33'
+      description: 'CCT-336'
     },
     {
       name: 'Please click on provided  button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-42'
+      description: 'CCT-428'
     }
 
 

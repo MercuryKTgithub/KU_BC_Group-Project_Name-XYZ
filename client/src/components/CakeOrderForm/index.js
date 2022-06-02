@@ -121,7 +121,7 @@ const CakeOrderForm = () => {
     const isNotValid = validateColorCodeLength(event.target.value);
        
       if (isNotValid) {
-        setErrorMessage('Theme Color Code cannot have more than 8 characters!');
+        setErrorMessage('Theme Color Code cannot have more than 7 characters!');
       }     
       else if (!validateColorCodeField(event.target.value))
       {
