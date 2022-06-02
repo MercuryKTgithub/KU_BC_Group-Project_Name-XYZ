@@ -50,7 +50,7 @@
   Graphic content such as screenshots, cropped photos and the likes are used in this application mainly for education purposes only. We strongly encourage the users of this FEC (Florally Enchanting Cakes) App to replace all existing graphic artifacts by their own if it can be derived for commercial purposes in anyway.
 
   ### 
-  _Copyright Disclaimer under section 107 of the Copyright Act 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research. Fair use is a use permitted by copyright statute that might otherwise be infringing_
+  _Copyright Disclaimer: Under section 107 of the Copyright Act 1976, allowance is made for “fair use” for purposes such as criticism, comment, news reporting, teaching, scholarship, education and research. Fair Use is a use permitted by copyright statute that might otherwise be infringing_
 
   ## Questions
   GitHub username: MercuryKTgithub
