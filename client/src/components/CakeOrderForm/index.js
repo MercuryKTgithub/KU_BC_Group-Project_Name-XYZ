@@ -3,7 +3,7 @@ import { useQuery, useMutation } from '@apollo/client'; // useQuery hook that ex
 import { useNavigate } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
 import { ADD_CAKE } from '../../utils/mutations';
-// import Auth from '../../utils/auth';
+import Auth from '../../utils/auth';
 import { validateColorCodeLength, validateColorCodeField, validateRequiredField } from '../../utils/helpers'
 import { primaryflowers } from '../../utils/primaryflowers';
 import { secondaryflowers } from '../../utils/secondaryflowers';
@@ -268,8 +268,19 @@ const CakeOrderForm = () => {
 // -----------------------------------------------------
   return (
     <div >
-      <div >
-        <h2>Cake's Baseline Order</h2>
+      {/* <div > */}
+      <div className='flex-row justify-space-between'>
+        {/* <h2>Cake's Baseline Order</h2> */}
+
+          <div className={`col-12 col-lg-8 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}><h2>Cake's Baseline Order</h2>
+          </div>
+          {Auth.loggedIn && user ? (<div className="col-12 col-lg-3 mb-3"><h5>Welcome, {user.username}!</h5></div> ) : 
+          <div className="col-12 col-lg-3 mb-3">Please register to place orders</div>  }
+
+          {/* <div className={`col-12 col-lg-9 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}>
+            What's here;</div>
+          {Auth.loggedIn && user ? (<div className="col-12 col-lg-3 mb-3"><h5>Welcome, {user.username}!</h5></div> ) : 
+          <div className="col-12 col-lg-3 mb-3">&nbsp;</div>  } */}
 
         <div >
           <form className="flex-row justify-space-between-md" onSubmit={handleFormSubmit} style={{'backgroundColor' : "transparent" }}>

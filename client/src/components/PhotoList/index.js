@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Modal from '../Modal';
 
+
 const PhotoList = ({ category }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentPhoto, setCurrentPhoto] = useState();
@@ -129,6 +130,7 @@ const PhotoList = ({ category }) => {
         <Modal onClose={toggleModal} currentPhoto={currentPhoto} />
       )}
       <div className="flex-row justify-space-around pb-3">
+
         {currentPhotos.map((image, i) => (
           <img  
             src={require(`../../assets/small/${category}/${i}.jpg`)}
@@ -137,8 +139,10 @@ const PhotoList = ({ category }) => {
             onClick={() => toggleModal(image, i)}
             key={image.description}
           />
-        ))}
+        ))}       
+
       </div>
+
     </div>
   );
 };

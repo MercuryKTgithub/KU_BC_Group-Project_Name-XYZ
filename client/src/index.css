@@ -1488,14 +1488,14 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
 /* (3) MEDIA QUERY FOR SCREENS LESS THAN 575 ----------------------Pick LG Optimus L70 of 384 px wide */
 @media screen and (max-width: 575px) {
   .border-photo-small{
-    width: 180px;
-    height: 180px;
+    width: 170px;
+    height: 160px;
     position: relative; /* test with LG Optimus - No more sticky header */     
   } 
 
   .embraced{
-    width: 260px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
   }
 
   h1{
@@ -1519,51 +1519,51 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
 /* (3) MEDIA QUERY FOR SCREENS LESS THAN 575 ----------------------Pick LG Optimus L70 of 384 px wide */
 @media screen and (max-width: 768px) {    
   .border-photo-small{
-    width: 330px  !important;
-    height: 320px  !important;
+    width: 170px  !important;
+    height: 200px  !important;
     position: relative; /* test with LG Optimus - No more sticky header */     
   } 
 
   .embraced{
-    width: 340px  !important;
-    height: 310px  !important;
+    width: 220px  !important;
+    height: 3225px  !important;
   }
 
   h1{
-    font-size: 18px !important;
+    font-size: 15px !important;
   }
 
   p{
-    font-size: 16px !important;
+    font-size: 14px !important;
   }
 
   header a{
-    font-size: 18px;
+    font-size: 14px;
   }
 
   ul, li{
-    font-size: 15px;
+    font-size: 14px;
   }
 }
 
 @media screen and (max-width: 980px) 
 { 
   .border-photo-small{
-    width: 380px;
-    height: 380px;
+    width: 340px;
+    height: 350px;
     position: relative;
   }
   .embraced{
-    width: 500px;
-    height: 500px;
+    width: 420px;
+    height: 430px;
     position: relative;
   }
 
   h1{
-    font-size: 18px  !important;
+    font-size: 17px  !important;
   }
 
   p{
-    font-size: 15px !important;
+    font-size: 17px !important;
   }
 }

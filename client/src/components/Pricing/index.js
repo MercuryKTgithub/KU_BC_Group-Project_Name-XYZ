@@ -1,9 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client'; // useQuery hook that expect a parameter passed in
 import Auth from '../../utils/auth';
-import { Link, useNavigate, NavLink } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
-// import photo from '../../assets/featured/baseline_order.png';
 import SinglePhoto from '../SinglePhoto';
 
 const Pricing = () => {
@@ -25,7 +23,6 @@ const Pricing = () => {
           {/* <h5> Glad you've made it here.</h5> */}
           <SinglePhoto />
         </div>
-
         {loggedIn && user ? (<div className="col-12 col-lg-3 mb-3"><h5>Welcome, {user.username}!</h5></div> ) : 
         <div className="col-12 col-lg-3 mb-3">Please register to place orders</div>  }
       
