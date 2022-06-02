@@ -31,7 +31,7 @@
   Clone repository and run npm install at root of file to install all dependencies.
 
   ## Usage
-  Create an account to login and begin customizing a custom cake to your liking. Stop by the gallery to see the sample cakes that our customers have ordered and leave comments on some of your favorites.
+  Create an account to login and begin customizing a custom cake to your liking. Stop by the gallery to see the sample cakes that our customers have ordered or the lines of cakes we've made as catalog cake-models. Customers can leave comments, special request to further personalize their cakes and come back for more inputs, or they can just check out the cake upon its creation.
 
   ## License
   ![badmath](https://img.shields.io/npm/l/open)
