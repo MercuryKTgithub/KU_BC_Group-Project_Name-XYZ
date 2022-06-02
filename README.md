@@ -53,7 +53,7 @@
   ## Questions
   GitHub username: MercuryKTgithub
   
-  If you have additional questions about this project, you can contact me at blank@email. 
+  If you have additional questions about this project, you can contact me at Lorem-ipsum@dolorSit.amet
 
   ## Documentations 
   ##### Scenario Screenshots
