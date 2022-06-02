@@ -2,6 +2,10 @@
 
   ## Description
   Speciality order cakes for Wedding and Birthday occasions that specializes in buttercreme and floral aesthetics.
+  
+  Link to deployed application:
+
+  https://staging-designer-cake-app-fec.herokuapp.com/
 
   ## Table of Contents
   * [Technologies](#technologies)
