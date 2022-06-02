@@ -1519,14 +1519,14 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
 /* (3) MEDIA QUERY FOR SCREENS LESS THAN 575 ----------------------Pick LG Optimus L70 of 384 px wide */
 @media screen and (max-width: 768px) {    
   .border-photo-small{
-    width: 330px  !important;;
-    height: 320px  !important;;
+    width: 330px  !important;
+    height: 320px  !important;
     position: relative; /* test with LG Optimus - No more sticky header */     
   } 
 
   .embraced{
-    width: 340px  !important;;
-    height: 310px  !important;;
+    width: 340px  !important;
+    height: 310px  !important;
   }
 
   h1{
@@ -1560,7 +1560,7 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }
 
   h1{
-    font-size: 18px  !important;;
+    font-size: 18px  !important;
   }
 
   p{
