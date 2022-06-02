@@ -1483,3 +1483,87 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
 .border-photo-small{
   border: 1px solid var(--medium);
 }
+
+/* |||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* (3) MEDIA QUERY FOR SCREENS LESS THAN 575 ----------------------Pick LG Optimus L70 of 384 px wide */
+@media screen and (max-width: 575px) {
+  .border-photo-small{
+    width: 180px;
+    height: 180px;
+    position: relative; /* test with LG Optimus - No more sticky header */     
+  } 
+
+  .embraced{
+    width: 260px;
+    height: 250px;
+  }
+
+  h1{
+    font-size: 16px !important;
+  }
+
+  p{
+    font-size: 16px !important;
+  }
+
+  header a{
+    font-size: 18px;
+  }
+
+  ul, li{
+    font-size: 13px;
+  }
+}
+
+/* |||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* (3) MEDIA QUERY FOR SCREENS LESS THAN 575 ----------------------Pick LG Optimus L70 of 384 px wide */
+@media screen and (max-width: 768px) {    
+  .border-photo-small{
+    width: 330px  !important;;
+    height: 320px  !important;;
+    position: relative; /* test with LG Optimus - No more sticky header */     
+  } 
+
+  .embraced{
+    width: 340px  !important;;
+    height: 310px  !important;;
+  }
+
+  h1{
+    font-size: 18px !important;
+  }
+
+  p{
+    font-size: 16px !important;
+  }
+
+  header a{
+    font-size: 18px;
+  }
+
+  ul, li{
+    font-size: 15px;
+  }
+}
+
+@media screen and (max-width: 980px) 
+{ 
+  .border-photo-small{
+    width: 380px;
+    height: 380px;
+    position: relative;
+  }
+  .embraced{
+    width: 500px;
+    height: 500px;
+    position: relative;
+  }
+
+  h1{
+    font-size: 18px  !important;;
+  }
+
+  p{
+    font-size: 15px !important;
+  }
+}
