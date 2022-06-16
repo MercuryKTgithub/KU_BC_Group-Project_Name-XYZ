@@ -66,14 +66,18 @@
   ###### Signup Page
   ![Signup_Page](https://user-images.githubusercontent.com/95730728/171548656-671ce05c-f45f-4c75-ba2b-7767edf52def.png)  
    ###### Cake Close-Up from Catalog with ID Code to Place an Order
-  ![Cake_Close_Up_With_Theme-Color-Code_Ready-To_CopynPaste](https://user-images.githubusercontent.com/95730728/171548774-d6d0ce5e-5bce-4bde-9f31-e79514afa5a9.png)
+  ![sml_cake-close-up](https://user-images.githubusercontent.com/95730728/174085184-ea5ac5e7-0faa-452e-a4d6-79c046f0cde9.png)        
    ###### Cake Order Form
   ![Cake_Order_Page](https://user-images.githubusercontent.com/95730728/171548709-9ad318cb-d176-4b2b-b2ce-d6a0738942cf.png)
-###### Newly Created Cake in Focus
+  ###### Newly Created Cake in Focus
   Current Cake in focus, past created cakes appear at the far right edge in dark pink
   ![Weeding Cake_Special_Request_or_need-a-Consultant](https://user-images.githubusercontent.com/95730728/171548844-4ecf6d1d-e801-4976-a3ce-a33f90cf0fe5.png)
-###### Cake's Commenting and Suggestions
+  ###### Cake's Commenting and Suggestions
   ![Continue the back and forth conversation about cakes](https://user-images.githubusercontent.com/95730728/171548874-265e7a20-5204-4441-b7ce-e1f2182bd17a.png)
+       
+       
+
+       
 
 
 
