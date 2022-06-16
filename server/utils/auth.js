@@ -7,6 +7,7 @@ const expiration = '48h';
     // function signToken can be imported like this const { signToken } = require('../utils/auth');
  
 module.exports = {
+  
   //  signToken() function expects a user object and will add that user's username, email, and _id properties to the token
   signToken: function({ username, email, _id }) {
     const payload = { username, email, _id };
@@ -29,6 +30,9 @@ module.exports = {
     // -- If the secret on jwt.verify() doesn't match the secret that was used with jwt.sign(), the object won't be decoded, error thrown
     // we wrapped the verify() method in a try...catch statement to mute the error
     try {
+      console.log("rrrrrrrrrrrrrrr");
+      console.log(secret);
+      console.log("rrrrrrrrrrrrrrr");
       const { data } = jwt.verify(token, secret, { maxAge: expiration });  // decode user data  
       req.user = data; // attach decoded user data to request object
     } catch {
