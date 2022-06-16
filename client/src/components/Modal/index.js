@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React from 'react';
 
 const Modal = ({ onClose, currentPhoto }) => {
   const { name, description, category, index } = currentPhoto; // destructured
@@ -16,7 +16,7 @@ const Modal = ({ onClose, currentPhoto }) => {
         <h4 className="modalTitle" style={{ 'fontFamily': 'Fahkwang', fontSize : 22, fontWeight: 400, 'margin': '0 0 10px 0','color': 'var(--light)'}}>
           {name} </h4>
         <img className="embraced"
-          src={require(`../../assets/large/${category}/${index}.jpg`)}
+          src={require(`../../assets/large/${category}/${index}.png`)}
           alt="enlarged version of target cake model"
         />
         <div>

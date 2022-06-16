@@ -1,20 +1,16 @@
 const jwt = require('jsonwebtoken');
-// the secret has nothing to do with encoding
-const secret = 'mysecretsshhhhh'; // secret merely enables the server to verify whether it recognizes this token
+require('dotenv').config();
+const secret = process.env.APP_SECRET
 const expiration = '48h';
-
-/* ***********************   
-    // jwt.sign
-    // jwt.verify
-
+   
+    // jwt.sign // jwt.verify
     // function signToken can be imported like this const { signToken } = require('../utils/auth');
-*********************** */
+ 
 module.exports = {
   //  signToken() function expects a user object and will add that user's username, email, and _id properties to the token
   signToken: function({ username, email, _id }) {
     const payload = { username, email, _id };
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration }); // sign with given secret so server can recognize token or not while verifying
-    
   },
 
   // -- Backend looking for token

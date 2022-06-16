@@ -70,16 +70,16 @@ const resolvers = {
       }
     },
     // <REMOVE CAKE MUTATION>
-    // removeCake: async (parent, { cakeId }, context) => {
-    //   if (context.user) {
-    //       const updatedUser = await User.findOneAndUpdate(
-    //         {_id: context.user._id},
-    //         { $pull: { cakes: { cakeId: cakeId } } },
-    //         { new: true }
-    //       )
-    //       return update
-    //   }
-    // },
+    removeCake: async (parent, { cakeId }, context) => {
+      if (context.user) {
+          const updatedUser = await User.findOneAndUpdate(
+            {_id: context.user._id},
+            { $pull: { cakes: { cakeId: cakeId } } },
+            { new: true }
+          )
+          return updatedUser;
+      }
+    },
 
     addUser: async (parent, args) => {
       const user = await User.create(args);
