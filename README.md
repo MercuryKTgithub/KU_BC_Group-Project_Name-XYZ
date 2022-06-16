@@ -66,7 +66,7 @@
   ###### Signup Page
   ![Signup_Page](https://user-images.githubusercontent.com/95730728/171548656-671ce05c-f45f-4c75-ba2b-7767edf52def.png)  
    ###### Cake Close-Up from Catalog with ID Code to Place an Order
-  ![sml_cake-close-up](https://user-images.githubusercontent.com/95730728/174085184-ea5ac5e7-0faa-452e-a4d6-79c046f0cde9.png)        
+  ![sml_cake-close-up](https://user-images.githubusercontent.com/95730728/174086472-24c86da1-d9f4-4e67-ab87-6e66dcd4cad0.png)       
    ###### Cake Order Form
   ![Cake_Order_Page](https://user-images.githubusercontent.com/95730728/171548709-9ad318cb-d176-4b2b-b2ce-d6a0738942cf.png)
   ###### Newly Created Cake in Focus
@@ -77,7 +77,7 @@
        
        
 
-       
+ 
 
 
 
