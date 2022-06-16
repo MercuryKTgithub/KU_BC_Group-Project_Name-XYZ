@@ -10,52 +10,93 @@ const PhotoList = ({ category }) => {
     {
       name: 'Flower Cake Model - I',
       category: 'birthday',
-      description: 'FEC1110'
+      description: 'FEC12RD'
     },
     {
       name: 'Flower Cake Model - II',
       category: 'birthday',
-      description: 'FEC2120'
+      description: 'FEC14RD'
     },
     {
       name: 'Flower Cake Model - III',
       category: 'birthday',
-      description: 'FEC3131'
+      description: 'FEC16RD'
     },
     {
       name: 'Flower Cake Model - IV',
       category: 'birthday',
-      description: 'FEC4140'
+      description: 'FEC18RD'
     },
     {
       name: 'Flower Cake Model - V',
       category: 'birthday',
-      description: 'FEC5150'
+      description: 'FEC21RD'
     },
     {
       name: 'Flower Cake Model - VI',
       category: 'birthday',
-      description: 'FEC7170'
+      description: 'FEC23RD'
     },
     {
       name: 'Flower Cake Model - VII',
       category: 'birthday',
-      description: 'FEC8180'
+      description: 'FEC25RD'
     },
     {
       name: 'Flower Cake Model - VIII',
       category: 'birthday',
-      description: 'FEC9190'
+      description: 'FEC27RD'
     },
+    {
+      name: 'Flower Cake Model - IX',
+      category: 'birthday',
+      description: 'FEC29RD'
+    },
+    {
+      name: 'Flower Cake Model - X',
+      category: 'birthday',
+      description: 'FEC31RD'
+    },
+    {
+      name: 'Flower Cake Model - XI',
+      category: 'birthday',
+      description: 'FEC33RD'
+    },
+    {
+      name: 'Flower Cake Model - XII',
+      category: 'birthday',
+      description: 'FEC35HT'
+    },
+    {
+    name: 'Flower Cake Model - XIII',
+    category: 'birthday',
+    description: 'FEC37CY'
+    },
+    {
+      name: 'Flower Cake Model - XIV',
+      category: 'birthday',
+      description: 'FEC39CY'
+    },
+    {
+      name: 'Flower Cake Model - XV',
+      category: 'birthday',
+      description: 'FEC41CY'
+    },
+    {
+      name: 'Flower Cake Model - XVI',
+      category: 'birthday',
+      description: 'FEC43CY'
+    }, 
+   
     {
       name: 'Wedding Cake Model - I',
       category: 'wedding',
-      description: 'FEC11WE'
+      description: 'FEC31WE'
     },
     {
       name: 'Wedding Cake Model - II',
       category: 'wedding',
-      description: 'FEC22WE'
+      description: 'FEC32WE'
     },
     {
       name: 'Wedding Cake Model - III',
@@ -65,7 +106,47 @@ const PhotoList = ({ category }) => {
     {
       name: 'Wedding Cake Model - IV',
       category: 'wedding',
-      description: 'FEC44WE'
+      description: 'FEC34WE'
+    },
+    {
+      name: 'Wedding Cake Model - V',
+      category: 'wedding',
+      description: 'FEC35WE'
+    },
+    {
+      name: 'Wedding Cake Model - VI',
+      category: 'wedding',
+      description: 'FEC21WE'
+    },
+    {
+      name: 'Wedding Cake Model - VII',
+      category: 'wedding',
+      description: 'FEC22WE'
+    },
+    {
+      name: 'Wedding Cake Model - VIII',
+      category: 'wedding',
+      description: 'FEC23WE'
+    },
+    {
+      name: 'Wedding Cake Model - IX',
+      category: 'wedding',
+      description: 'FEC24WE'
+    },
+    {
+      name: 'Wedding Cake Model - X',
+      category: 'wedding',
+      description: 'FEC25WE'
+    },
+    {
+      name: 'Wedding Cake Model - XI',
+      category: 'wedding',
+      description: 'FEC26WE'
+    },
+    {
+      name: 'Wedding Cake Model - XII',
+      category: 'wedding',
+      description: 'FEC27WE'
     },
     // theme ends
     {
@@ -133,7 +214,7 @@ const PhotoList = ({ category }) => {
 
         {currentPhotos.map((image, i) => (
           <img  
-            src={require(`../../assets/small/${category}/${i}.jpg`)}
+            src={require(`../../assets/small/${category}/${i}.png`)}
             alt={image.name}
             className="img-thumbnail mx-1 mb-4 border-photo-small"
             onClick={() => toggleModal(image, i)}
@@ -147,4 +228,5 @@ const PhotoList = ({ category }) => {
   );
 };
 
+ 
 export default PhotoList;
