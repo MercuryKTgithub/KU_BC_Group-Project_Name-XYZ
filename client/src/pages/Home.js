@@ -29,7 +29,7 @@ const Home = () => {
         {loggedIn && user ? (<h5> Glad you've made it here.</h5> ) : <h5> Thanks for visiting</h5>}
         </div>
 
-        {loggedIn && user ? (<div className="col-12 col-lg-3 mb-3"><h5>{activeCurrentDate}</h5>Welcome, {user.username}!</div> ) : 
+        {loggedIn && user ? (<div className="col-12 col-lg-3 mb-3"><h4>{activeCurrentDate}</h4><h5>Welcome, {user.username}!</h5></div> ) : 
         // <div className="col-12 col-lg-3 mb-3"> <h5>June 1st, 2021</h5>Please register to place orders</div>  }
         <div className="col-12 col-lg-3 mb-3"> <h5>{activeCurrentDate}</h5>Please register to place orders</div>  }
       

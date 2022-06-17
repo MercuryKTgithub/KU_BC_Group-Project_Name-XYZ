@@ -138,7 +138,7 @@ h3 {
 }
 
 h4 {
-  font-size: 1.5rem;
+  font-size: 1.40rem;
 }
 
 h5 {
@@ -1587,7 +1587,7 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }
 
   footer{
-    font-size: 1.15rem !important;
+    font-size: 1.15rem  ;
   }
 
   .form-input{
@@ -1667,7 +1667,7 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }
 
   footer{
-    font-size: 1.2rem !important;
+    font-size: 1.2rem  ;
   }
 
   .form-input{
