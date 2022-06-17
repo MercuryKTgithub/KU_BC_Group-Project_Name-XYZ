@@ -180,7 +180,6 @@ nav a {
   padding: 6px 10px;
   margin: 0 15px;
   transition: all 0.2s;
-  
 }
 
 nav a:hover {
@@ -1495,6 +1494,11 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
 /* |||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
 /* (1) MEDIA QUERY FOR SCREENS LESS THAN 575 ------------Pick LG Optimus L70 of 384 px wide */
 @media screen and (max-width: 575px) {
+  nav a {
+    padding: 3px 4px;
+    margin: 0 10px;
+    transition: all 0.2s;
+  }
   
   label{
     font-size: 0.80rem !important;
@@ -1546,15 +1550,15 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }
 
   h3{
-    font-size: 0.90rem !important;
-  }
-
-  h4{
     font-size: 0.85rem !important;
   }
 
-  h5{
+  h4{
     font-size: 0.80rem !important;
+  }
+
+  h5{
+    font-size: 0.75rem !important;
   }
 
   p{
@@ -1627,7 +1631,7 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }
 
   h3{
-    font-size: 1.10rem !important;
+    font-size: 1.10rem  ;
   }
 
   h4{
@@ -1639,7 +1643,7 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }
 
   p{
-    font-size: 0.95rem !important;
+    font-size: 0.90rem  ;
   }
 
   header a{
@@ -1702,7 +1706,7 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }
 
   h3{
-    font-size: 1.30rem !important;
+    font-size: 1.30rem  ;
   }
 
   h4{
@@ -1714,11 +1718,11 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }  
 
   header p{
-    font-size: 1.10rem !important;
+    font-size: 1.05rem  ;
   }
 
   header a{
-    font-size: 1.3rem ;
+    font-size: 1.25rem ;
   }
 
   span{
