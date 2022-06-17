@@ -24,7 +24,7 @@ const Modal = ({ onClose, currentPhoto }) => {
             onMouseOver={handlePreClick} onMouseEnter={handlePreClick} onClick={() => navigator.clipboard.writeText(target.toString())} >
               {description}
           </button>
-          <button type="button" onClick={onClose} className="btn m-2">
+          <button type="button" onClick={onClose} className="btn m-2 ">
             Close Photo
           </button>       
         </div>

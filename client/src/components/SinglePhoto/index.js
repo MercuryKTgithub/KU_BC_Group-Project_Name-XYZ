@@ -8,7 +8,7 @@ function SinglePhoto(props) {
     <div className={`col-12 col-lg-9 mb-3`}>
       <h2>Baseline Pricing</h2>
       <p>FEC Order Package features an Online Photo Album Gallergy or Wedding Guestbook designed and hosted by us, in addition to getting your cakes done on time. Customers will pay a flat rate of $20.00 deposit to get this service set-up. </p>
-      <img className='border-photo-small'
+      <img className='pricing'
         src={photo}
         width={500}
         height={400}

@@ -1486,65 +1486,168 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   border: 1px solid var(--light);
 }
 
-.border-photo-small{
+.border-photo-small, .pricing{
   border: 1px solid var(--medium);
 }
 
-/* |||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-/* (3) MEDIA QUERY FOR SCREENS LESS THAN 575 ----------------------Pick LG Optimus L70 of 384 px wide */
+
+
+/* |||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
+/* (1) MEDIA QUERY FOR SCREENS LESS THAN 575 ------------Pick LG Optimus L70 of 384 px wide */
 @media screen and (max-width: 575px) {
+  
+  label{
+    font-size: 0.80rem !important;
+  }
+
+  footer{
+    font-size: 0.90rem !important;
+  }
+
+  .form-input{
+    height: 30px !important;
+    font-size: 0.75rem !important;
+    padding: 0.15rem 0.45rem !important ;
+  }
+
+  .text-error{
+    font-size: 0.85rem !important;
+  }
+
+  .pricing{
+    width: 75% !important;
+    height: 72% !important;
+  }
+
   .border-photo-small{
-    width: 170px;
-    height: 160px;
-    position: relative; /* test with LG Optimus - No more sticky header */     
+    width: 20% !important;
+    height: 19% !important;
+    position: relative;     
   } 
 
   .embraced{
-    width: 220px;
-    height: 220px;
+    width: 45% !important;
+    height: 43% !important;
+  }
+
+  .btn{
+    font-size: 0.70rem   ;
+    padding: 0.25rem 0.55rem !important ;
+    /* width: 40% !important; */
+    
   }
 
   h1{
-    font-size: 16px !important;
+    font-size: 1.05rem !important;
+  }
+
+  h2{
+    font-size: 0.95rem !important;
+  }
+
+  h3{
+    font-size: 0.90rem !important;
+  }
+
+  h4{
+    font-size: 0.85rem !important;
+  }
+
+  h5{
+    font-size: 0.80rem !important;
   }
 
   p{
-    font-size: 16px !important;
+    font-size: 0.75rem !important;
   }
 
   header a{
-    font-size: 18px;
+    font-size: 0.80rem !important;
+  }
+
+  span{
+    font-size: 0.65rem !important;
   }
 
   ul, li{
-    font-size: 13px;
+    font-size: 0.7rem !important;
   }
 }
 
-/* |||||||||||||||||||||||| ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| */
-/* (3) MEDIA QUERY FOR SCREENS LESS THAN 575 ----------------------Pick LG Optimus L70 of 384 px wide */
-@media screen and (max-width: 768px) {    
+/* |||||||||||||||||||||||| |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||*/
+/* (2) MEDIA QUERY FOR SCREENS LESS THAN 768 ------------Ipad Mini---------------------------*/
+@media screen and (max-width: 768px) {  
+   
+  label{
+    font-size: 1.1rem ;
+  }
+
+  footer{
+    font-size: 1.15rem !important;
+  }
+
+  .form-input{
+    height: 35px  ;
+    font-size: 0.95rem  ;
+    padding: 0.25rem 0.50rem  ;
+  }
+
+  .text-error{
+    font-size: 1.1rem ;
+  }
+
+  .pricing{
+    width: 73%  ;
+    height: 70%  ;
+  }
+
   .border-photo-small{
-    width: 170px  !important;
-    height: 200px  !important;
-    position: relative; /* test with LG Optimus - No more sticky header */     
+    width: 24% !important;
+    height: 23% !important;
+    position: relative;     
   } 
 
   .embraced{
-    width: 220px  !important;
-    height: 3225px  !important;
+    width: 53% !important;
+    height: 51% !important;
+  }
+
+  .btn{
+    font-size: 0.86rem !important;
+    padding: 0.30rem 0.7rem  ;
+    /* width: 45% !important; */
   }
 
   h1{
-    font-size: 15px !important;
+    font-size:  1.25rem  ;
+  }
+
+  h2{
+    font-size: 1.15rem !important;
+  }
+
+  h3{
+    font-size: 1.10rem !important;
+  }
+
+  h4{
+    font-size: 1.0rem  ;
+  }
+
+  h5{
+    font-size: 0.95rem ;
   }
 
   p{
-    font-size: 14px !important;
+    font-size: 0.95rem !important;
   }
 
   header a{
-    font-size: 14px;
+    font-size: 1.2rem  ;
+  }
+
+  span{
+    font-size: 1.1rem ;
   }
 
   ul, li{
@@ -1552,24 +1655,74 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   }
 }
 
+/* (3) MEDIA QUERY FOR SCREENS LESS THAN 980 ----------- Surface Pro 7 --------- */
 @media screen and (max-width: 980px) 
 { 
-  .border-photo-small{
-    width: 340px;
-    height: 350px;
-    position: relative;
+  label{
+    font-size: 1.15rem ;
   }
+
+  footer{
+    font-size: 1.2rem !important;
+  }
+
+  .form-input{
+    height: 50px  ;
+    font-size: 1.05rem  ;
+    padding: 0.35rem 0.65rem  ;
+  }
+
+  .text-error{
+    font-size: 1.1rem ;
+  }
+
+  .border-photo-small{
+    width: 26% !important;
+    height: 24.5% !important;
+    position: relative;     
+  } 
+
   .embraced{
-    width: 420px;
-    height: 430px;
-    position: relative;
+    width: 54.8% !important;
+    height: 53% !important;
+  }
+
+  .btn{
+    font-size: 0.98rem !important;
+    padding: 0.35rem 0.75rem ;
+    
   }
 
   h1{
-    font-size: 17px  !important;
+    font-size:  1.55rem  ;
   }
 
-  p{
-    font-size: 17px !important;
+  h2{
+    font-size: 1.35rem !important;
   }
+
+  h3{
+    font-size: 1.30rem !important;
+  }
+
+  h4{
+    font-size: 1.20rem  ;
+  }
+
+  h5{
+    font-size: 1.10rem  ;
+  }  
+
+  header p{
+    font-size: 1.10rem !important;
+  }
+
+  header a{
+    font-size: 1.3rem ;
+  }
+
+  span{
+    font-size: 1.2rem  ;
+  }
+
 }

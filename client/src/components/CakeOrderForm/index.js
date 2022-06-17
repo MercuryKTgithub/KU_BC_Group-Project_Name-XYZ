@@ -448,7 +448,7 @@ const CakeOrderForm = () => {
                     className="form-input text-left" style={{ 'fontSize': 26 }} />
                 
             </div>
-            <button className="btn col-3 col-md-3" type="submit" >
+            <button className="btn col-md-3" type="submit" >
                 Create this cake!
             </button>
             <div className="col-9 col-md-9 text-right text-error">
