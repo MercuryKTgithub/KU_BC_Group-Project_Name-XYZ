@@ -36,7 +36,7 @@ export function validateColorCodeField(input) {
 }
 
 export function validateRequiredField(input){
-  var len = input.toString().length;
+  var len = input.toString().trim().length;
   if (len <= 0)
   {
     return false;
