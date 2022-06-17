@@ -17,19 +17,18 @@ export function validatePasswordLength(input) {
   return (len < 8 )? false : true;
 }
 
+// set maxLength on input this should take care of the other loose end
 export function validateColorCodeLength(input) {
   var len = input.toString().length;
-   
-  if( 8 < len ){
-    return false;
-  }
-  else if ( 8 > len ){
+  if( len < 7){
     return false
-  }else{
+  }
+  else{
     return true;
   }
   
 }
+
  
 export function validateColorCodeField(input) {
   var re = /^([a-zA-Z0-9])+$/;

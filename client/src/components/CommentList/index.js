@@ -27,8 +27,8 @@ import { Link } from 'react-router-dom';
             <div className="card-body">
                 <p style={{ wordBreak: 'break-all' }}>{comment.commentText}</p>
                 <span><strong>| </strong> Reactions: {comment.reactionCount}<strong> |</strong></span>
-                <Link to={`/comment/${comment._id}`} className="mb-0">
-                  <span className="mb-0"> Click to{' '}{comment.reactionCount ? 'see' : 'start'} the discussion! 
+                <Link to={`/comment/${comment._id}`} className="mb-0 discuss">
+                  <span className="mb-0 "> Click to{' '}{comment.reactionCount ? 'see' : 'start'} the discussion! 
                   </span>
                 </Link><span><strong> |</strong></span>
             </div>

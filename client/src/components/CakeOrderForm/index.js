@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { QUERY_ME } from '../../utils/queries';
 import { ADD_CAKE } from '../../utils/mutations';
 import Auth from '../../utils/auth';
-import { validateColorCodeLength, validateColorCodeField, validateRequiredField } from '../../utils/helpers'
+import { validateColorCodeLength,  validateColorCodeField, validateRequiredField } from '../../utils/helpers'
 import { primaryflowers } from '../../utils/primaryflowers';
 import { secondaryflowers } from '../../utils/secondaryflowers';
 import { cakefillings } from '../../utils/cakefillings';
@@ -35,6 +35,11 @@ const CakeOrderForm = () => {
     }
   });
 
+  const [nameUntouched, setNameUntouched] = useState(0);
+  const [colorCodeUntouched, setColorCodeEmailUntouched] = useState(0);
+  const MAX_LEN_NOT_MET_MSG = "Theme Color Code must have exactly 7 characters!";
+  const WEIRD_CHAR_MSG = "It appears you have entered a special character or no text at all. Numericalpha only please.";
+  const MUST_HAVE_NAME_MSG = "Please give your cake creation a name. It is required";
   let navigate = useNavigate();
   const [checkedState, setCheckedState] = useState(
     new Array(primaryflowers.length).fill(false)
@@ -77,6 +82,7 @@ const CakeOrderForm = () => {
 
   console.log(frostings);
   const [errorMessage, setErrorMessage] = useState(''); 
+  const [errorMessageCakeName, setErrorMessageCakeName] = useState('');
   const[extraPrimary, setExtraPrimaryText] = useState(0);
   const[extraSecondary, setExtraSecondaryText] = useState(0);
   const[extraThickness, setExtraThicknessText] = useState(0);
@@ -110,39 +116,58 @@ const CakeOrderForm = () => {
   
   console.log(extraThickness);
 
+ // -- Must have input-fields
   const handleThemeColorCodeTextChange = event => {
-    // const re = /^[a-zA-Z0-9]{8}$/;
-    // const re = /^[a-zA-Z0-9]$/;
-    // if (!event.target.value === '' || !re.test(event.target.value)) {
-    //     setThemeColorCodeText(event.target.value);
-    // }
+    setColorCodeEmailUntouched(colorCodeUntouched + 1);
     setThemeColorCodeText(event.target.value)
 
-    const isNotValid = validateColorCodeLength(event.target.value);
-       
-      if (isNotValid) {
-        setErrorMessage('Theme Color Code cannot have more than 7 characters!');
-      }     
-      else if (!validateColorCodeField(event.target.value))
-      {
-        setErrorMessage('It appears you have entered a special character or no text at all. Numericalpha only please.');
-      }
-      else{
-        setErrorMessage('');
-      }
+    if (!validateColorCodeField(event.target.value))
+    {
+      setErrorMessage(WEIRD_CHAR_MSG);
+    }
+
+    else if (!validateColorCodeLength(event.target.value)) {
+      setErrorMessage(MAX_LEN_NOT_MET_MSG);
+    }     
+
+    else{
+      setErrorMessage('');
+    }
+
   }
+
+//   const handleThemeColorCodeTextChange = event => {
+//     setColorCodeEmailUntouched(colorCodeUntouched + 1);
+//     setThemeColorCodeText(event.target.value)
+//     const isValid = validateColorCodeLength(event.target.value);
+//       if (!isValid) {
+//         setErrorMessage('Theme Color Code must have exactly 7 characters!');
+//       }     
+//       else if (!validateColorCodeField(event.target.value))
+//       {
+//         setErrorMessage('It appears you have entered a special character or no text at all. Numericalpha only please.');
+//       }
+//       else{
+//         setErrorMessage('');
+//       }
+// 
+//   }
+
+
   console.log(themeColorCode);
 
   // -- required field : name
   const handleCakeNameTextChange = event => {
+    setNameUntouched(nameUntouched + 1);
     setCakeNameText(event.target.value);
     const valid = validateRequiredField(event.target.value);
     if (!valid) {
-      setErrorMessage('Please give your cake creation a name. It is required');
+      setErrorMessageCakeName(MUST_HAVE_NAME_MSG);
     }
     else{
-      setErrorMessage('');
+      setErrorMessageCakeName('');
     }
+     
   }
 
   console.log(name);
@@ -237,32 +262,33 @@ const CakeOrderForm = () => {
 };
 
 // const [addCake, { error }] = useMutation(ADD_CAKE);
-// ``````````````````````````````````````````````````
-// objective2: get the list of selected cake fillings  
 
 // submit form 
 // -----------------------------------------------------
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(primaryFlowers);
-    try {
-      await addCake({
-        variables: { name, themeColorCode, shape
-                         , primaryFlowers, secondaryFlowers
-                         , extraPrimary, extraSecondary, extraThickness
-                         , fillings, frostings }
-      });
-           
-      // clear form value
-      setThemeColorCodeText('');
-      setCakeNameText('');
-          
-      navigate("/cakediscussion", {
-        state: name
-      })
-    } catch (e) {
-      console.error(e);
-    }
+    console.log(nameUntouched, colorCodeUntouched);
+    console.log(errorMessage, );
+    if ((!errorMessage) && (!errorMessageCakeName) && (nameUntouched >= 1) && (colorCodeUntouched >= 1) ) {
+      try {
+        await addCake({
+          variables: { name, themeColorCode, shape
+                          , primaryFlowers, secondaryFlowers
+                          , extraPrimary, extraSecondary, extraThickness
+                          , fillings, frostings }
+        });
+            
+        // clear form value
+        setThemeColorCodeText('');
+        setCakeNameText('');
+            
+        navigate("/cakediscussion", {
+          state: name
+        })
+      } catch (e) {
+        console.error(e);
+      }
+    }// end if
   };
 // End submit form  
 // -----------------------------------------------------
@@ -406,7 +432,7 @@ const CakeOrderForm = () => {
             <div className="col-6 col-md-6" style={{'backgroundColor' : "transparent" }}>
                 <h4>Enter theme color code [closest to your liking]</h4>
                   <input 
-                    type="text"
+                    type="text" maxLength={7}
                     value={themeColorCode} onBlur={handleThemeColorCodeTextChange}
                     onChange={handleThemeColorCodeTextChange}
                     className="form-input text-center" style={{'width' : '38%', 'fontSize': 26 }} />
@@ -427,7 +453,8 @@ const CakeOrderForm = () => {
             </button>
             <div className="col-9 col-md-9 text-right text-error">
               {error && <div>Something went wrong...</div>}
-              {errorMessage}
+              {errorMessage} <br></br>
+              {errorMessageCakeName}
             </div>
           </form>
           <div className="flex-row justify-space-between-md" style={{'paddingBottom' : 30 }} >
