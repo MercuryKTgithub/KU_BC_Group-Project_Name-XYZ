@@ -150,51 +150,140 @@ const PhotoList = ({ category }) => {
     },
     // theme ends
     {
-      name: 'Please click on provided  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
       description: 'CCT-982'
     },
     {
-      name: 'Please click on provided  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
       description: 'CCT-964'
     },
     {
-      name: 'Please click on provided  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
       description: 'CCT-946'
     },
     {
-      name: 'Please click on provided  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
       description: 'CCT-928'
     },
     {
-      name: 'Please click on provided  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
       description: 'CCT-919'
     },
     {
-      name: 'Please click on provided  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
       description: 'CCT-312'
     },
     {
-      name: 'Please click on provided  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
       description: 'CCT-324'
     },
     {
-      name: 'Please click on provide  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
       description: 'CCT-336'
     },
     {
-      name: 'Please click on provided  button to get the color theme code',
+      name: 'Please click on provided button to get the color theme code',
       category: 'theme-code',
-      description: 'CCT-428'
+      description: 'CCT-348'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-351'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-372'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-384'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-392'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-413'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-425'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-437'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-449'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-451'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-471'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-483'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-495'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-517'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-528'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-531'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-537'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-543'
+    },
+    {
+      name: 'Please click on provided button to get the color theme code',
+      category: 'theme-code',
+      description: 'CCT-548'
     }
-
 
   ]);
 
