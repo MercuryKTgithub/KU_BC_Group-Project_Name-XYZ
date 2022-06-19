@@ -59,6 +59,10 @@ userSchema.virtual('commentCount').get(function() {
   return this.comments.length;
 });
 
+userSchema.virtual('cakeCount').get(function() {
+  return this.cakes.length;
+})
+
 const User = model('User', userSchema);
 
 module.exports = User;

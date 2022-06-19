@@ -6,6 +6,7 @@ const typeDefs = gql`
     username: String
     email: String
     commentCount: Int
+    cakeCount: Int
     comments: [Comment]
     cakes: [Cake]
      

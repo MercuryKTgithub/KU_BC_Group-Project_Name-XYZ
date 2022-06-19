@@ -13,6 +13,7 @@ export const QUERY_USER = gql`
         createdAt
         reactionCount
       }
+      cakeCount
       cakes {
         _id
         name
@@ -132,6 +133,7 @@ export const QUERY_ME = gql`
           username
         }       
       }
+      cakeCount
       cakes {
         _id
         name
@@ -160,6 +162,7 @@ export const QUERY_ME_BASIC = gql`
       username
       email
       commentCount
+      cakeCount
       cakes {
         _id
         name
