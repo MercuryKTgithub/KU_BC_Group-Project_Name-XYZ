@@ -17,6 +17,8 @@ const Home = () => {
   const user = data?.me || {};
 
   console.log(user);
+  const loggedIn = Auth.loggedIn();
+  console.log(loggedIn);
 
   var currentDate = moment();
   var activeCurrentDate = currentDate.format('dddd, MMMM Do YYYY');
@@ -29,14 +31,14 @@ const Home = () => {
              <h3> Welcome to Florally Enchanting Cake Website</h3>
         </div>
         
-          <div className={`col-lg-8 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}>
-          {Auth.loggedIn && user.cakeCount ? (<h5> Glad you've made it here.</h5> ) : <h5> Thanks for visiting</h5>}
-          {Auth.loggedIn && (user.cakeCount) ? ( <Link to={`/cakediscussion`}><span>&raquo;  View your custom cake discussion dashboard &raquo;</span></Link>) : (<div> </div>)}
+          <div className={`col-lg-8 mb-3 ${loggedIn && 'col-lg-8'}`}>
+          {loggedIn && user ? (<h5> Glad you've made it here.</h5> ) : <h5> Thanks for visiting</h5>}
+          {loggedIn && (user.cakeCount) ? ( <Link to={`/cakediscussion`}><span>&raquo;  View your custom cake discussion dashboard &raquo;</span></Link>) : (<span> </span>)}
           </div>
 
-          {Auth.loggedIn && user.cakeCount ? 
+          {loggedIn && user ? 
           (<div className="col-12 col-lg-3 mb-3"><h4>{activeCurrentDate}</h4><h5>Welcome, {user.username}!</h5></div> ) : 
-          (<div className="col-12 col-lg-3 mb-3"> <h5>{activeCurrentDate}</h5> Please register to place orders </div>) }
+          (<div className="col-12 col-lg-3 mb-3"><h5>{activeCurrentDate}</h5> Please register to place orders </div>) }          
 
           
           {/* <div className={`col-12 col-lg-8 mb-3 ${Auth.loggedIn && 'col-lg-8'}`}>
