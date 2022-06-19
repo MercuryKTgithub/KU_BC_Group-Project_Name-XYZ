@@ -281,6 +281,7 @@ nav a:hover {
   transition: all 0.5s;  
   min-width: 18% !important;
 }
+
 .cake-card p{
   padding: 3px 0;
 }
@@ -1588,7 +1589,7 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
     font-size: 0.75rem !important;
   }
 
-  p{
+  header p{
     font-size: 0.75rem !important;
   }
 
@@ -1797,6 +1798,11 @@ input[type="radio"] { /* change "blue" browser chrome to yellow */
   h5{
     font-size: 1.10rem  ;
   }  
+
+  p{
+    font-size: 1.0rem  ;
+  }
+
 
   header p{
     font-size: 1.05rem  ;
